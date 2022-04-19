@@ -7,4 +7,18 @@
         <UserSecretsId>aspnet-PUSL2020.Web-01545DC9-ED34-4313-8384-86CE974D46CE</UserSecretsId>
         <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     </PropertyGroup>
+    
+    <ItemGroup>
+        <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="6.0.2" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\PUSL2020.Application\PUSL2020.Application.csproj" />
+      <ProjectReference Include="..\PUSL2020.Domain\PUSL2020.Domain.csproj" />
+      <ProjectReference Include="..\PUSL2020.Infrastructure\PUSL2020.Infrastructure.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Controllers" />
+    </ItemGroup>
 </Project>
