@@ -10,16 +10,13 @@
     
     <ItemGroup>
         <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="6.0.2" />
+        <PackageReference Include="Telerik.UI.for.AspNet.Core" Version="2022.1.412" />
     </ItemGroup>
 
     <ItemGroup>
       <ProjectReference Include="..\PUSL2020.Application\PUSL2020.Application.csproj" />
       <ProjectReference Include="..\PUSL2020.Domain\PUSL2020.Domain.csproj" />
       <ProjectReference Include="..\PUSL2020.Infrastructure\PUSL2020.Infrastructure.csproj" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <Folder Include="Controllers" />
     </ItemGroup>
 
     <ItemGroup>

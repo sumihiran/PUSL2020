@@ -10,6 +10,7 @@ using PUSL2020.Web.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddKendo();
 
 // Authentication
 
