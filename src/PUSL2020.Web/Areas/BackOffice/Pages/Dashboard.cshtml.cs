@@ -20,6 +20,5 @@ public class Dashboard : PageModel
 
     public void OnGet()
     {
-        _logger.LogInformation("hi");
     }
 }

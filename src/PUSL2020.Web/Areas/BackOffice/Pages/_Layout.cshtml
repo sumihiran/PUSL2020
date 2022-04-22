@@ -1,0 +1,17 @@
+﻿@{
+    Layout = "/Pages/Shared/_Layout.cshtml";
+}
+
+@section Main
+{
+    @RenderBody()
+}
+
+@section Scripts
+{
+    @await RenderSectionAsync("Scripts", required: false)
+}
+
+@section Login {
+    <partial name="/Areas/BackOffice/Pages/_LoginPartial.cshtml"/>
+}

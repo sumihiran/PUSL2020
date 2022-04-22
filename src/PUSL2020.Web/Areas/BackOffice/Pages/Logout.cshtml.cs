@@ -6,15 +6,15 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using PUSL2020.Application.Authorization;
 using PUSL2020.Application.Identity.Models;
 
-namespace PUSL2020.Web.Areas.Admin.Pages
+namespace PUSL2020.Web.Areas.BackOffice
 {
-    [AdminAuthorize]
+    [EmployeeAuthorize]
     public class LogoutModel : PageModel
     {
-        private readonly SignInManager<WebMaster> _signInManager;
+        private readonly SignInManager<EmployeeUser> _signInManager;
         private readonly ILogger<LogoutModel> _logger;
 
-        public LogoutModel(SignInManager<WebMaster> signInManager, ILogger<LogoutModel> logger)
+        public LogoutModel(SignInManager<EmployeeUser> signInManager, ILogger<LogoutModel> logger)
         {
             _signInManager = signInManager;
             _logger = logger;
