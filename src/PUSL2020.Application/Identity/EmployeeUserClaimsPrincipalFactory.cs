@@ -17,7 +17,7 @@ public class EmployeeUserClaimsPrincipalFactory : UserClaimsPrincipalFactory<Emp
     {
         var userId = await UserManager.GetUserIdAsync(user);
         var userName = await UserManager.GetUserNameAsync(user);
-        var id = new ClaimsIdentity(EmployeeIdentityConstants.AuthenticationScheme,
+        var id = new ClaimsIdentity(ApplicationIdentityConstants.EmployeeAuthenticationScheme,
             Options.ClaimsIdentity.UserNameClaimType,
             Options.ClaimsIdentity.RoleClaimType);
         id.AddClaim(new Claim(Options.ClaimsIdentity.UserIdClaimType, userId));

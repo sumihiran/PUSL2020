@@ -42,4 +42,11 @@ public static class ServiceCollectionExtensions
             .AddClaimsPrincipalFactory<EmployeeUserClaimsPrincipalFactory>();
     }
     
+    public static IdentityBuilder AddWebMasterIdentity(this IServiceCollection services)
+    {
+        return services.AddIdentityCore<WebMaster>()
+            .AddDefaultTokenProviders()
+            .AddClaimsPrincipalFactory<WebMasterUserClaimsPrincipalFactory>();
+    }
+    
 }

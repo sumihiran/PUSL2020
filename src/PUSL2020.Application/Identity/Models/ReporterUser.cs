@@ -20,7 +20,7 @@ public class ReporterUser : IdentityUser<ReporterId>
 
     public Reporter? Reporter { get; set; }
 
-    public override ReporterId Id => Reporter != null ? Reporter.Id : _id;
+    public override ReporterId Id => Reporter?.Id ?? _id;
     
     
     

@@ -7,6 +7,6 @@ public class EmployeeAuthorizeAttribute : AuthorizeAttribute
 {
     public EmployeeAuthorizeAttribute()
     {
-        AuthenticationSchemes = EmployeeIdentityConstants.AuthenticationScheme;
+        AuthenticationSchemes = ApplicationIdentityConstants.EmployeeAuthenticationScheme;
     }
 }

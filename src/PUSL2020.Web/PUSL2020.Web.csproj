@@ -21,4 +21,9 @@
     <ItemGroup>
       <Folder Include="Controllers" />
     </ItemGroup>
+
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="Areas\Admin\Pages\Shared\_Layout.cshtml" />
+      <_ContentIncludedByDefault Remove="Areas\Admin\Pages\Shared\_LoginPartial.cshtml" />
+    </ItemGroup>
 </Project>

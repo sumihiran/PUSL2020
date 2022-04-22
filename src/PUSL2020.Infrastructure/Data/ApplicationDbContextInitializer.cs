@@ -14,18 +14,22 @@ public class ApplicationDbContextInitializer
     private readonly ILogger<ApplicationDbContextInitializer> _logger;
     private readonly ApplicationDbContext _context;
     private readonly UserManager<EmployeeUser> _employeeManager;
-    private readonly UserManager<ReporterUser> _userManager;
+    private readonly UserManager<ReporterUser> _reporterManager;
+    private readonly UserManager<WebMaster> _webmasterManager;
 
     public ApplicationDbContextInitializer(
         ILogger<ApplicationDbContextInitializer> logger,
-        ApplicationDbContext context, 
-        UserManager<EmployeeUser> employeeManager, 
-        UserManager<ReporterUser> userManager)
+        ApplicationDbContext context,
+        UserManager<EmployeeUser> employeeManager,
+        UserManager<ReporterUser> reporterManager,
+        UserManager<WebMaster> webmasterManager
+    )
     {
         _logger = logger;
         _context = context;
         _employeeManager = employeeManager;
-        _userManager = userManager;
+        _reporterManager = reporterManager;
+        _webmasterManager = webmasterManager;
     }
 
     public async Task InitialiseAsync()
@@ -46,6 +50,13 @@ public class ApplicationDbContextInitializer
 
     public async Task SeedAsync()
     {
+        // Seed Webmaster
+        var admin = new WebMaster()
+        {
+            UserName = "admin"
+        };
+        await _webmasterManager.CreateAsync(admin, "Pa$$w0rd");
+        
         var police = new Institution()
         {
             Id = new InstitutionId(Guid.Parse("9202c023-b0e8-4cf6-b8d4-2e932ef3c59c")),
@@ -59,7 +70,7 @@ public class ApplicationDbContextInitializer
         _context.Institutions.Add(police);
 
         await _context.SaveChangesAsync();
-        
+
         var staffUser = new EmployeeUser(new Employee()
         {
             DisplayName = "D D N S Bandara",
@@ -67,7 +78,7 @@ public class ApplicationDbContextInitializer
             UserName = "sumihiran"
         });
         await _employeeManager.CreateAsync(staffUser, "S3cr3t!");
-        
+
         var reporterUser = new ReporterUser(new PersonReporter()
         {
             Email = "nuwan@gmail.com",
@@ -79,8 +90,6 @@ public class ApplicationDbContextInitializer
             },
             Nic = new Nic("951360988V")
         });
-        await _userManager.CreateAsync(reporterUser, "P@55w0rd");
-        
+        await _reporterManager.CreateAsync(reporterUser, "P@55w0rd");
     }
-
 }

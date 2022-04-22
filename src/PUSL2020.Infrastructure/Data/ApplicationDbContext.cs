@@ -22,7 +22,8 @@ public class ApplicationDbContext : DbContext, IApplicationDbContext
     public DbSet<CompanyReporter> CompanyReporters { get; set; }
    
     public DbSet<Employee> Employees { get; set; }
-    
+    public DbSet<WebMaster> WebMasters { get; set; }
+
     public DbSet<Institution> Institutions { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -145,6 +146,24 @@ public class ApplicationDbContext : DbContext, IApplicationDbContext
                 .WithOne()
                 .HasForeignKey<Employee>(e => e.Id);
             b.Navigation(u => u.Employee).AutoInclude();
+        });
+        
+        modelBuilder.Entity<WebMaster>(b =>
+        {
+            b.Property(u => u.Id).ValueGeneratedOnAdd();
+            b.HasIndex(u => u.NormalizedUserName).HasDatabaseName("WebMaster_UsernameIndex").IsUnique();
+            b.Property(u => u.ConcurrencyStamp).IsConcurrencyToken();
+        
+            b.Ignore(u => u.Email);
+            b.Ignore(u => u.NormalizedEmail);
+            b.Ignore(u => u.PhoneNumber);
+            b.Ignore(u => u.EmailConfirmed);
+            b.Ignore(u => u.PhoneNumber);
+            b.Ignore(u => u.PhoneNumberConfirmed);
+            b.Ignore(u => u.AccessFailedCount);
+            b.Ignore(u => u.TwoFactorEnabled);
+            b.Ignore(u => u.LockoutEnabled);
+            b.Ignore(u => u.LockoutEnd);
         });
         
         

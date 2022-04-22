@@ -14,9 +14,9 @@ var builder = WebApplication.CreateBuilder(args);
 // Authentication
 
 builder.Services.AddAuthenticationDefaults()
-    .AddCookie(EmployeeIdentityConstants.AuthenticationScheme, o =>
+    .AddCookie(ApplicationIdentityConstants.EmployeeAuthenticationScheme, o =>
     {
-        o.Cookie.Name = EmployeeIdentityConstants.AuthenticationScheme;
+        o.Cookie.Name = ApplicationIdentityConstants.EmployeeAuthenticationScheme;
         o.LoginPath = EmployeeAuthenticationWebDefaults.LoginPath;
         o.LogoutPath = EmployeeAuthenticationWebDefaults.LogoutPath;
         o.AccessDeniedPath = EmployeeAuthenticationWebDefaults.AccessDeniedPath;
@@ -26,12 +26,27 @@ builder.Services.AddAuthenticationDefaults()
             OnValidatePrincipal = SecurityStampValidator.ValidatePrincipalAsync
         };
     })
+    .AddCookie(ApplicationIdentityConstants.WebMasterAuthenticationScheme, o =>
+    {
+        o.Cookie.Name = ApplicationIdentityConstants.WebMasterAuthenticationScheme;
+        o.LoginPath = WebMasterAuthenticationWebDefaults.LoginPath;
+        o.LogoutPath = WebMasterAuthenticationWebDefaults.LogoutPath;
+        o.AccessDeniedPath = WebMasterAuthenticationWebDefaults.AccessDeniedPath;
+        o.ReturnUrlParameter = WebMasterAuthenticationWebDefaults.ReturnUrlParameter;
+        o.Events = new CookieAuthenticationEvents
+        {
+            OnValidatePrincipal = SecurityStampValidator.ValidatePrincipalAsync
+        };
+    })
     .AddIdentityCookies();
 
 builder.Services.AddReporterIdentity()
-    .AddSignInManager<SignInManager<ReporterUser>>();
+    .AddSignInManager<Microsoft.AspNetCore.Identity.SignInManager<ReporterUser>>();
 builder.Services.AddEmployeeIdentity()
     .AddSignInManager<EmployeeSignInManager>();
+
+builder.Services.AddWebMasterIdentity()
+    .AddSignInManager<WebMasterSignInManager>();
 
 // Email
 builder.Services.AddScoped<IEmailSender, LoggingEmailSender>();

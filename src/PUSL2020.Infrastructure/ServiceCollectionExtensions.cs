@@ -41,5 +41,8 @@ public static class ServiceCollectionExtensions
         
         services
             .AddScoped<IUserStore<EmployeeUser>, UserOnlyStore<EmployeeUser, ApplicationDbContext, EmployeeId>>();
+        
+        services
+            .AddScoped<IUserStore<WebMaster>, GenericUserStore<WebMaster, ApplicationDbContext, int>>();
     }
 }
