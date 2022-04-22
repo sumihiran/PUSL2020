@@ -1,0 +1,44 @@
+@model PUSL2020.Web.Areas.Admin.ViewModels.EmployeeViewModel
+
+@(Html.Kendo().Grid<PUSL2020.Web.Areas.Admin.ViewModels.EmployeeViewModel>()
+    .Name("grid")
+    .Columns(columns =>
+    {
+        // columns.Bound(p => p.Id);
+        columns.Bound(p => p.DisplayName).Width(120);
+        columns.Bound(p => p.Office).Width(120);
+        columns.Bound(p => p.Username).Width(120);
+        columns.Command(command =>
+        {
+            command.Edit(); 
+            command.Destroy();
+        }).Width(250);
+    })
+    .ToolBar(toolbar => toolbar.Create())
+    .Editable(editable => editable.Mode(GridEditMode.PopUp))
+    .Pageable()
+    .Sortable()
+    .Scrollable()
+    .HtmlAttributes(new { style = "height:550px;" })
+    .DataSource(dataSource => dataSource
+        .Ajax()
+        .PageSize(20)
+        .Model(model => model.Id(p => p.Id))
+        .Create(update => update.Action("Employee_Create", "Employee"))
+        .Read(read => read.Action("Employee_Read", "Employee"))
+        .Update(update =>  update.Action("Employee_Update", "Employee"))
+        .Destroy(update => update.Action("Employee_Destroy", "Employee"))
+    )
+    .Events(e => e.Edit("onEdit")))
+
+@section Scripts
+{
+    <script type="text/javascript">
+     
+        function onEdit(e) {
+            $('[name="Id"]').attr("readonly", true);
+        }
+     
+    </script>
+}
+   

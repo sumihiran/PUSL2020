@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc.Razor;
 using PUSL2020.Application;
 using PUSL2020.Application.Identity;
 using PUSL2020.Application.Identity.Models;
@@ -57,7 +58,13 @@ builder.Services.RegisterInfrastructureServices(builder.Configuration, builder.E
 
 
 builder.Services.AddRazorPages();
-builder.Services.AddControllersWithViews();
+builder.Services.AddControllersWithViews()
+    // For Kendo Ajax
+    .AddJsonOptions(opt =>
+    {
+        opt.JsonSerializerOptions.PropertyNamingPolicy = null;
+    });
+
 
 var app = builder.Build();
 
