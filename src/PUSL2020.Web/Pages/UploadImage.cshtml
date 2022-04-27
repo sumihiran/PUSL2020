@@ -1,0 +1,22 @@
+@page
+@model PUSL2020.Web.Pages.UploadImage
+
+<form asp-page-handler="Upload" method="post">
+    <div class="demo-section wide" style="margin-bottom:1em; position: relative;">
+        <div style="width:40%; float:left">
+            @(Html.Kendo().Upload()
+                .Name("files")
+                .Validation(validation =>
+                {
+                    validation.AllowedExtensions(Model.AllowedExtensions);
+                    if (Model.IsLimited)
+                    {
+                        validation.MaxFileSize(3145728);
+                    }
+                })
+                )
+        </div>
+    </div>
+    <kendo-button name="submit" type="submit"></kendo-button>
+</form>
+>

@@ -1,6 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using MultiScheme.Domain;
 using PUSL2020.Application.Data;
 using PUSL2020.Application.Identity.Models;
 using PUSL2020.Domain.Entities;
@@ -26,9 +25,12 @@ public class ApplicationDbContext : DbContext, IApplicationDbContext
     public DbSet<WebMaster> WebMasters { get; set; }
 
     public DbSet<Institution> Institutions { get; set; }
+    public DbSet<ImageResource> Images { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        #region Reporter
+
         modelBuilder.Entity<Reporter>(builder =>
         {
             builder
@@ -100,6 +102,8 @@ public class ApplicationDbContext : DbContext, IApplicationDbContext
             b.Navigation(u => u.Reporter).AutoInclude();
         });
         
+        #endregion
+        
         modelBuilder.Entity<Institution>(b =>
         {
             b.Property(i => i.Id)
@@ -110,6 +114,7 @@ public class ApplicationDbContext : DbContext, IApplicationDbContext
             b.OwnsOne(i => i.Address);
         });
         
+        #region Employee
         modelBuilder.Entity<Employee>(b =>
         {
             b.Property(e => e.Id)
@@ -149,6 +154,8 @@ public class ApplicationDbContext : DbContext, IApplicationDbContext
             b.Navigation(u => u.Employee).AutoInclude();
         });
         
+        #endregion
+        
         modelBuilder.Entity<WebMaster>(b =>
         {
             b.Property(u => u.Id).ValueGeneratedOnAdd();
@@ -166,7 +173,10 @@ public class ApplicationDbContext : DbContext, IApplicationDbContext
             b.Ignore(u => u.LockoutEnabled);
             b.Ignore(u => u.LockoutEnd);
         });
-        
-        
+
+        modelBuilder.Entity<ImageResource>(b =>
+        {
+            b.HasKey(i => i.Id);
+        });
     }
 }

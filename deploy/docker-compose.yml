@@ -10,8 +10,26 @@ services:
       SA_PASSWORD: ${MSSQL_PASSWORD:-yourStrong(!)Password}
     ports:
       - "1433:1433"
-#    volumes:
-#      - mssql_data:/var/opt/mssql
+  #    volumes:
+  #      - mssql_data:/var/opt/mssql
+
+  minio:
+    container_name: minio
+    image: quay.io/minio/minio:RELEASE.2022-04-16T04-26-02Z
+    restart: unless-stopped
+    expose:
+      - "9000"
+      - "9001"
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    environment:
+      MINIO_CONSOLE_ADDRESS: ":9001"
+      MINIO_ROOT_USER: minioadmin
+      MINIO_ROOT_PASSWORD: minioadmin
+    command: server --console-address ":9001" /data
+
 
 volumes:
   mssql_data:
+  minio_data:

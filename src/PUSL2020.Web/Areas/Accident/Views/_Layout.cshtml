@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>@ViewData["Title"] - PUSL2020</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css"/>
+    <link href="https://kendo.cdn.telerik.com/2022.1.412/styles/kendo.material-main.min.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true"/>
+    <link rel="stylesheet" href="~/PUSL2020.Web.styles.css" asp-append-version="true"/>
+
+    <script src="https://kendo.cdn.telerik.com/2022.1.412/js/jquery.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2022.1.412/js/kendo.all.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2022.1.412/js/kendo.aspnetmvc.min.js"></script>
+</head>
+<body>
+<div class="container-fluid container-wide">
+    <div class="demo-section wide">
+        <script id="template" type="text/x-kendo-template">
+            <ul>
+                <li data-role='drawer-item' class='k-state-selected'><span class='k-icon k-i-inbox'></span><span class='k-item-text' data-id='Inbox'>Inbox</span></li>
+                <li data-role='drawer-separator'></li>
+                <li data-role='drawer-item'><span class='k-icon k-i-notification k-i-bell'></span><span class='k-item-text' data-id='Notifications'>Notifications</span></li>
+                <li data-role='drawer-item'><span class='k-icon k-i-calendar'></span><span class='k-item-text' data-id='Calendar'>Calendar</span></li>
+                <li data-role='drawer-item'><span class='k-icon k-i-hyperlink-email'></span><span class='k-item-text' data-id='Attachments'>Attachments</span></li>
+                <li data-role='drawer-separator'></li>
+                <li data-role='drawer-item'><span class='k-icon k-i-star-outline k-i-bookmark-outline'></span><span class='k-item-text' data-id='Favourites'>Favourites</span></li>
+            </ul>
+        </script>
+
+        <kendo-toolbar name="ToolBar">
+            <toolbar-items>
+                <item type="CommandType.Button" icon="menu" class="k-flat" click="toggleDrawer"/>
+                <item template="<h3 style='margin-left: 20px;'>Report</h3>"/>
+            </toolbar-items>
+        </kendo-toolbar>
+
+        <kendo-drawer name="drawer" auto-collapse="false" template-id="template" mode="push" position="left" min-height="100" swipe-to-open="true">
+            <mini enabled="false"/>
+            <content>
+                <main class="k-drawer-container k-pt-5">
+                    <div class="container" id="drawer-content">
+                        @RenderBody()
+                    </div>
+                </main>
+
+            </content>
+        </kendo-drawer>
+    </div>
+    <script>
+        $(document).ready( function () {
+            var drawer = $("#drawer").data().kendoDrawer;
+            drawer.show();
+        })
+                    
+        function toggleDrawer() {
+            var drawerInstance = $("#drawer").data().kendoDrawer;
+            var drawerContainer = drawerInstance.drawerContainer;
+            if(drawerContainer.hasClass("k-drawer-expanded")) {
+                drawerInstance.hide();
+            } else {
+                drawerInstance.show();
+            }
+        }
+    </script>
+
+    <style>
+        #example .demo-section {
+            max-width: 640px;
+        }
+
+        .k-toolbar .k-icon {
+            font-size: 18px;
+        }
+    </style>
+</div>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="~/js/site.js" asp-append-version="true"></script>
+
+@await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

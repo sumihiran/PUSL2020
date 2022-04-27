@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Minio.AspNetCore;
 using PUSL2020.Application.Identity.Models;
 using PUSL2020.Domain.ValueObjects;
 using PUSL2020.Infrastructure.Data;
@@ -22,7 +23,7 @@ public static class ServiceCollectionExtensions
             throw new ArgumentException($"Connection string '{ApplicationDbContext.ConnectionString}' is null or empty",
                 connectionString?.GetType().Name);
         }
-
+        // Database
         services.AddDbContext<ApplicationDbContext>(o =>
         {
             if (environment.IsDevelopment())
@@ -44,5 +45,16 @@ public static class ServiceCollectionExtensions
         
         services
             .AddScoped<IUserStore<WebMaster>, GenericUserStore<WebMaster, ApplicationDbContext, int>>();
+        
+        // Object Storage
+        var minioOptions = new MinioOptions();
+        configuration.GetRequiredSection("Minio").Bind(minioOptions);
+        services.AddMinio(opt =>
+        {
+            opt.Endpoint = minioOptions.Endpoint;
+            opt.AccessKey = minioOptions.AccessKey;
+            opt.SecretKey = minioOptions.SecretKey;
+            opt.Region = minioOptions.Region;
+        });
     }
 }

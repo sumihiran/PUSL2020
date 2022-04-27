@@ -1,5 +1,4 @@
 using Microsoft.EntityFrameworkCore;
-using MultiScheme.Domain;
 using PUSL2020.Application.Identity.Models;
 using PUSL2020.Domain.Entities;
 
@@ -14,4 +13,6 @@ public interface IApplicationDbContext
     public DbSet<EmployeeUser> EmployeeUsers { get; set; }
     public DbSet<WebMaster> WebMasters { get; set; }
     public DbSet<Institution> Institutions { get; set; }
+    
+    public DbSet<ImageResource> Images { get; set; }
 }

@@ -1,7 +1,6 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-using MultiScheme.Domain;
 using PUSL2020.Application.Identity.Models;
 using PUSL2020.Domain.Entities;
 using PUSL2020.Domain.Enums;

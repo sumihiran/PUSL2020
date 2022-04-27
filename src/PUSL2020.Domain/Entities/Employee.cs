@@ -1,8 +1,6 @@
-
-using PUSL2020.Domain.Entities;
 using PUSL2020.Domain.ValueObjects;
 
-namespace MultiScheme.Domain;
+namespace PUSL2020.Domain.Entities;
 
 public class Employee
 {

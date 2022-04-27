@@ -1,6 +1,6 @@
+using AspNetCore.Proxy;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc.Razor;
 using PUSL2020.Application;
 using PUSL2020.Application.Identity;
 using PUSL2020.Application.Identity.Models;
@@ -11,6 +11,7 @@ using PUSL2020.Web.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddProxies();
 builder.Services.AddKendo();
 
 // Authentication
@@ -97,3 +98,6 @@ app.MapControllers();
 app.MapRazorPages();
 
 app.Run();
+
+// For Tests
+public partial class Program { }
