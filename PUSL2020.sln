@@ -17,7 +17,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docker", "Docker", "{9E982A
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PUSL2020.Infrastructure.Tests", "tests\PUSL2020.Infrastructure.Tests\PUSL2020.Infrastructure.Tests.csproj", "{9AE46A31-EC05-43F5-A619-5B241C076562}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PUSL2020.Domain.Tests", "test\PUSL2020.Domain.Tests\PUSL2020.Domain.Tests.csproj", "{DC71ADC4-D3D7-45B4-BF39-DBF764E8964B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PUSL2020.Domain.Tests", "tests\PUSL2020.Domain.Tests\PUSL2020.Domain.Tests.csproj", "{DC71ADC4-D3D7-45B4-BF39-DBF764E8964B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PUSL2020.Application.Tests", "PUSL2020.Application.Tests\PUSL2020.Application.Tests.csproj", "{47B9C46A-F983-468E-9FD1-E3E29B1B3710}"
 EndProject
