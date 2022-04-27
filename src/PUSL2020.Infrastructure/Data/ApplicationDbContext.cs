@@ -5,6 +5,7 @@ using PUSL2020.Application.Identity.Models;
 using PUSL2020.Domain.Entities;
 using PUSL2020.Domain.Enums;
 using PUSL2020.Domain.ValueObjects;
+using PUSL2020.Infrastructure.Data.Extensions;
 
 namespace PUSL2020.Infrastructure.Data;
 
@@ -26,6 +27,8 @@ public class ApplicationDbContext : DbContext, IApplicationDbContext
 
     public DbSet<Institution> Institutions { get; set; }
     public DbSet<ImageResource> Images { get; set; }
+    public DbSet<Vehicle> Vehicles { get; set; }
+    public DbSet<Insurance> Insurances { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -178,5 +181,7 @@ public class ApplicationDbContext : DbContext, IApplicationDbContext
         {
             b.HasKey(i => i.Id);
         });
+        
+        modelBuilder.ConfigureVehicleModel();
     }
 }

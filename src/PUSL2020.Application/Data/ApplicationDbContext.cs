@@ -15,4 +15,7 @@ public interface IApplicationDbContext
     public DbSet<Institution> Institutions { get; set; }
     
     public DbSet<ImageResource> Images { get; set; }
+    
+    public DbSet<Vehicle> Vehicles { get; set; }
+    public DbSet<Insurance> Insurances { get; set; }
 }

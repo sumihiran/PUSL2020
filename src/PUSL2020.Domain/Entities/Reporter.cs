@@ -19,4 +19,6 @@ public abstract class Reporter
    
     public Address Address { get; set; }
     public string PasswordHash { get; set; }
+    
+    public List<Vehicle> Vehicles { get; set; }
 }

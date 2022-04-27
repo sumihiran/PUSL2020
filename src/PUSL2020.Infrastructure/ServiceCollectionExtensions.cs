@@ -16,13 +16,7 @@ public static class ServiceCollectionExtensions
     public static void RegisterInfrastructureServices(this IServiceCollection services,
         IConfiguration configuration, IHostEnvironment environment)
     {
-        var connectionString = configuration.GetConnectionString(ApplicationDbContext.ConnectionString);
-
-        if (string.IsNullOrWhiteSpace(connectionString))
-        {
-            throw new ArgumentException($"Connection string '{ApplicationDbContext.ConnectionString}' is null or empty",
-                connectionString?.GetType().Name);
-        }
+        
         // Database
         services.AddDbContext<ApplicationDbContext>(o =>
         {
@@ -32,6 +26,14 @@ public static class ServiceCollectionExtensions
             }
             else
             {
+                var connectionString = configuration.GetConnectionString(ApplicationDbContext.ConnectionString);
+
+                if (string.IsNullOrWhiteSpace(connectionString))
+                {
+                    throw new ArgumentException($"Connection string '{ApplicationDbContext.ConnectionString}' is null or empty",
+                        connectionString?.GetType().Name);
+                }
+                
                 o.UseSqlServer(connectionString);
             }
         });
