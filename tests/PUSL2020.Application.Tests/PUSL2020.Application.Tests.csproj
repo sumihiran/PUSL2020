@@ -21,7 +21,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\src\PUSL2020.Application\PUSL2020.Application.csproj" />
+      <ProjectReference Include="..\..\src\PUSL2020.Application\PUSL2020.Application.csproj" />
     </ItemGroup>
-
 </Project>

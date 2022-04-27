@@ -19,7 +19,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PUSL2020.Infrastructure.Tes
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PUSL2020.Domain.Tests", "tests\PUSL2020.Domain.Tests\PUSL2020.Domain.Tests.csproj", "{DC71ADC4-D3D7-45B4-BF39-DBF764E8964B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PUSL2020.Application.Tests", "PUSL2020.Application.Tests\PUSL2020.Application.Tests.csproj", "{47B9C46A-F983-468E-9FD1-E3E29B1B3710}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PUSL2020.Application.Tests", "tests\PUSL2020.Application.Tests\PUSL2020.Application.Tests.csproj", "{47B9C46A-F983-468E-9FD1-E3E29B1B3710}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PUSL2020.Tests.Shared", "tests\PUSL2020.Tests.Shared\PUSL2020.Tests.Shared.csproj", "{63C3CE17-5BE6-442D-87A0-EF8745479B4B}"
 EndProject
