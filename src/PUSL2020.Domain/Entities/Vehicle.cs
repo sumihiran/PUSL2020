@@ -5,7 +5,12 @@ namespace PUSL2020.Domain.Entities;
 
 public class Vehicle
 {
-    public VehicleId Id { get; set; }
+    public Vehicle()
+    {
+        Id = Vid.New();
+    }
+
+    public Vid Id { get; set; }
     public string Make { get; set; }
     public string Model { get; set; }
     public string Class { get; set; }

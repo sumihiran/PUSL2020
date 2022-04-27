@@ -21,7 +21,7 @@ public static class VehicleModelBuilderExtension
         modelBuilder.Entity<Vehicle>(b =>
         {
             b.Property(i => i.Id)
-                .HasConversion<VehicleId.EfCoreValueConverter>();
+                .HasConversion<Vid.EfCoreValueConverter>();
 
             b.OwnsOne(v => v.Owner, a =>
             {
