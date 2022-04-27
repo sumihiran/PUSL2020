@@ -49,46 +49,10 @@ public class ApplicationDbContextInitializer
 
     public async Task SeedAsync()
     {
-        // Seed Webmaster
         var admin = new WebMaster()
         {
             UserName = "admin"
         };
         await _webmasterManager.CreateAsync(admin, "Pa$$w0rd");
-        
-        var police = new Institution()
-        {
-            Id = new InstitutionId(Guid.Parse("9202c023-b0e8-4cf6-b8d4-2e932ef3c59c")),
-            InstitutionType = InstitutionType.Police,
-            Name = "Regional Police",
-            Address = new Address("Homagama Police Station", string.Empty, "Walgama-Diyagama Road", "Homagama",
-                "Colombo", 10200),
-            PhoneNumber = "0112233456"
-        };
-
-        _context.Institutions.Add(police);
-
-        await _context.SaveChangesAsync();
-
-        var staffUser = new EmployeeUser(new Employee()
-        {
-            DisplayName = "D D N S Bandara",
-            Office = police,
-            UserName = "sumihiran"
-        });
-        await _employeeManager.CreateAsync(staffUser, "S3cr3t!");
-
-        var reporterUser = new ReporterUser(new PersonReporter()
-        {
-            Email = "nuwan@gmail.com",
-            Name = new Name()
-            {
-                First = "Nuwan",
-                Middle = "Sumihiran",
-                Last = "Bandara"
-            },
-            Nic = new Nic("951360988V")
-        });
-        await _reporterManager.CreateAsync(reporterUser, "P@55w0rd");
     }
 }

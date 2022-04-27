@@ -8,6 +8,6 @@ public class Institution
     public InstitutionId Id { get; set; }
     public InstitutionType InstitutionType { get; set; }
     public string Name { get; set; }
-    public Address Address { get; set; }
-    public string PhoneNumber { get; set; }
+    public Address? Address { get; set; }
+    public string? PhoneNumber { get; set; }
 }

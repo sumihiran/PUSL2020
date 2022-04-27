@@ -12,7 +12,7 @@ public class Vehicle
     public FuelType FuelType { get; set; }
     
     public string EngineNo { get; set; }
-    public string RegistrationNo { get; set; }
+    public string Vrn { get; set; }
     public DateOnly RegisteredAt { get; set; }
     public Reporter Reporter { get; set; }
     

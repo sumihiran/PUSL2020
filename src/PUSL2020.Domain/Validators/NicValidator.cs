@@ -11,11 +11,11 @@ public class NicValidator
     
     public static bool IsValid(string nic)
     {
-        if (nic.Length is not 10 or 12)
+        if (nic.Length is 10 or 12)
         {
-            throw new ValidationException("Nic must contain either 10 or 12 characters");
+            return Regex.IsMatch(nic);
         }
         
-        return Regex.IsMatch(nic);
+        throw new ValidationException("Nic must contain either 10 or 12 characters");
     }
 }
