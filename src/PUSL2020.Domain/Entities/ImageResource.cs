@@ -11,4 +11,6 @@ public class ImageResource
     public string Path { get; set; }
     public string Name { get; set; }
     public DateTime Uploaded { get; set; }
+    
+    public Accident Accident { get; set; }
 }
