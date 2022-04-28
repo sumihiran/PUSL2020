@@ -10,5 +10,5 @@ public class ImageResource
     public Guid Id { get; set; }
     public string Path { get; set; }
     public string Name { get; set; }
-    public string CreatedAt { get; set; }
+    public DateTime Uploaded { get; set; }
 }

@@ -17,5 +17,10 @@ public class VehicleConfiguration : IEntityTypeConfiguration<Vehicle>
             a.OwnsOne(o => o.Address);
         });
         builder.OwnsOne(v => v.Insurance, a => { a.HasOne(i => i.Issuer); });
+        
+        builder.Property(e => e.Created)
+            .ValueGeneratedOnAdd();
+        builder.Property(e => e.Updated)
+            .ValueGeneratedOnAddOrUpdate();
     }
 }

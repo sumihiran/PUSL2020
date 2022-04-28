@@ -11,4 +11,7 @@ public class Vehicle : AbstractVehicle
 
     public Vid Id { get; set; }
     public Reporter Reporter { get; set; }
+    
+    public DateTime Created { get; set; }
+    public DateTime Updated { get; set; }
 }

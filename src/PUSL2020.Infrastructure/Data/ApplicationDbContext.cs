@@ -60,6 +60,8 @@ public class ApplicationDbContext : DbContext, IApplicationDbContext
         modelBuilder.Entity<ImageResource>(b =>
         {
             b.HasKey(i => i.Id);
+            b.Property(e => e.Uploaded)
+                .ValueGeneratedOnAdd();
         });
         
         

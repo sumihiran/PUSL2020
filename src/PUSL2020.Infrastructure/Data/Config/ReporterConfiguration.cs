@@ -29,6 +29,11 @@ public class ReporterConfiguration :
             .HasValue<CompanyReporter>(ReporterType.Company);
 
         builder.OwnsOne(r => r.Address);
+        
+        builder.Property(e => e.Created)
+            .ValueGeneratedOnAdd();
+        builder.Property(e => e.Updated)
+            .ValueGeneratedOnAddOrUpdate();
     }
 
     public void Configure(EntityTypeBuilder<PersonReporter> builder)

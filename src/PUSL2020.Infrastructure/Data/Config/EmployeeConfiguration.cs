@@ -18,6 +18,9 @@ public class EmployeeConfiguration:
     {
         builder.Property(e => e.Id)
             .HasConversion<EmployeeId.EfCoreValueConverter>();
+
+        builder.Property(e => e.Created)
+            .ValueGeneratedOnAdd();
     }
 
     public void Configure(EntityTypeBuilder<EmployeeUser> builder)

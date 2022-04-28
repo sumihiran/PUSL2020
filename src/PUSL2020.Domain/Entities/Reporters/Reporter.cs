@@ -22,4 +22,7 @@ public abstract class Reporter
     public string PasswordHash { get; set; }
     
     public List<Vehicle> Vehicles { get; set; }
+    
+    public DateTime Created { get; set; }
+    public DateTime Updated { get; set; }
 }

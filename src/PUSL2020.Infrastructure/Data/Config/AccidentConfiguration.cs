@@ -44,5 +44,9 @@ public class AccidentConfiguration : IEntityTypeConfiguration<Accident>
        {
            b.HasOne(r => r.Employee);
        });
+       
+       // Timestamps
+       builder.Property(e => e.Updated)
+           .ValueGeneratedOnAddOrUpdate();
     }
 }
