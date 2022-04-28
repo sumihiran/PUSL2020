@@ -1,6 +1,5 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using PUSL2020.Domain.Entities;
 using PUSL2020.Domain.Entities.Vehicles;
 using PUSL2020.Domain.ValueObjects;
 

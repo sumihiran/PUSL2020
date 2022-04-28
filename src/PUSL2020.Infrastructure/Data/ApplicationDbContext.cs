@@ -52,6 +52,10 @@ public class ApplicationDbContext : DbContext, IApplicationDbContext
         modelBuilder.ApplyConfigurationsFromAssembly(typeof(ApplicationDbContext).Assembly);
 
         modelBuilder.Ignore<Address>();
+        modelBuilder.Entity<Vehicle>(b =>
+        {
+            b.HasAlternateKey("ReporterId", "Vrn");
+        });
         
         modelBuilder.Entity<ImageResource>(b =>
         {
