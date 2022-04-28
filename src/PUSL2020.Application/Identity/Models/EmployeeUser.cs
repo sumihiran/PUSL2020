@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Identity;
 using PUSL2020.Domain.Entities;
+using PUSL2020.Domain.Entities.Employees;
 using PUSL2020.Domain.ValueObjects;
 
 namespace PUSL2020.Application.Identity.Models;

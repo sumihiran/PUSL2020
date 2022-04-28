@@ -37,7 +37,6 @@ public class EmployeeController : Controller
         {
             Id = e.Id.ToString(),
             DisplayName = e.Employee!.DisplayName,
-            Office = e.Employee!.Office.Name,
             Username = e.UserName
         }).ToDataSourceResultAsync(request));
     }

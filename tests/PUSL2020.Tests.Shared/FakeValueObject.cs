@@ -1,5 +1,7 @@
 using Bogus;
 using PUSL2020.Domain.Entities;
+using PUSL2020.Domain.Entities.Vehicles;
+using PUSL2020.Domain.Enums;
 using PUSL2020.Domain.ValueObjects;
 
 namespace PUSL2020.Tests.Shared;
@@ -20,6 +22,16 @@ public static class FakeValueObject
         .RuleFor(b => b.District, f => f.Address.State())
         .RuleFor(b => b.ZipCode, f => f.Random.Int(10000, 99000));
 
+    public static Faker<VehicleOwner> VehicleOwner => new Faker<VehicleOwner>()
+        .RuleFor(o => o.Address, _ => Address)
+        .RuleFor(o => o.Name, f => f.Person.FullName)
+        .RuleFor(o => o.Phone, f =>  f.Person.Phone);
+
+    public static Faker<Location> Location => new Faker<Location>()
+        .RuleFor(o => o.Road, f => f.Address.Direction())
+        .RuleFor(o => o.District, f => f.PickRandom<District>())
+        .RuleFor(o => o.Longitude, f => f.Random.Decimal())
+        .RuleFor(o => o.Latitude, f => f.Random.Decimal());
 
     public static Nic OldNic()
     {

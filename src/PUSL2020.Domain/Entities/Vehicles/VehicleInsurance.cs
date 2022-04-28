@@ -1,4 +1,6 @@
-namespace PUSL2020.Domain.Entities;
+using PUSL2020.Domain.Entities.Institutions;
+
+namespace PUSL2020.Domain.Entities.Vehicles;
 
 public class VehicleInsurance
 {

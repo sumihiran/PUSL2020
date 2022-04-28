@@ -1,3 +1,4 @@
+using PUSL2020.Domain.Entities.Vehicles;
 using PUSL2020.Domain.Enums;
 using PUSL2020.Domain.ValueObjects;
 
