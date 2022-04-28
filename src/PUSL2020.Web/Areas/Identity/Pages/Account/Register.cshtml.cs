@@ -5,11 +5,12 @@
 using System.ComponentModel.DataAnnotations;
 using System.Text;
 using System.Text.Encodings.Web;
-using Microsoft.AspNetCore.Authentication;
+using AutoMapper;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
+using PUSL2020.Application.DataAnnotations;
 using PUSL2020.Application.Identity.Models;
 using PUSL2020.Application.Services;
 using PUSL2020.Domain.Entities;
@@ -25,13 +26,15 @@ namespace PUSL2020.Web.Areas.Identity.Pages.Account
         private readonly IUserEmailStore<ReporterUser> _emailStore;
         private readonly ILogger<RegisterModel> _logger;
         private readonly IEmailSender _emailSender;
+        private readonly IMapper _mapper;
 
         public RegisterModel(
             UserManager<ReporterUser> userManager,
             IUserStore<ReporterUser> userStore,
             SignInManager<ReporterUser> signInManager,
             ILogger<RegisterModel> logger,
-            IEmailSender emailSender)
+            IEmailSender emailSender,
+            IMapper mapper)
         {
             _userManager = userManager;
             _userStore = userStore;
@@ -39,34 +42,82 @@ namespace PUSL2020.Web.Areas.Identity.Pages.Account
             _signInManager = signInManager;
             _logger = logger;
             _emailSender = emailSender;
+            _mapper = mapper;
         }
 
         
         [BindProperty]
         public InputModel Input { get; set; }
 
-        
         public string ReturnUrl { get; set; }
-
         
-        public IList<AuthenticationScheme> ExternalLogins { get; set; }
-
+        #region Wizard
+        public class PersonalDetailsModel
+        {
+            [Display(Name = "First Name")]
+            public string FirstName { get; set; }
+            
+            [Display(Name = "Middle Name")]
+            public string MiddleName { get; set; }
+            
+            [Display(Name = "Last Name")]
+            public string LastName { get; set; }
+            
+            [Display(Name = "Nic")]
+            public string Nic { get; set; }
+        }
         
-        public class InputModel
-        { 
-            [Required]
-            [Display(Name = "Name")]
+        
+        public class CompanyDetailsModel
+        {
+            [Display(Name = "Company Name")]
             public string Name { get; set; }
+            
+            [Display(Name = "Company Registration No")]
+            public string Crn { get; set; }
+        }
+        
+        public class ContactDetailsModel
+        {
+            [Required]
+            [PhoneNumber]
+            [Display(Name = "Phone")]
+            public string Phone { get; set; }
+            
+            [Required]
+            public Address Address { get; set; } = new();
+        }
 
+        public class Address
+        {
+            [Required]
+            [Display(Name = "Building / Home / Apartment")]
+            public string Line1 { get; set; }
+            
+            [Required]
+            [Display(Name = "Street")]
+            public string Street { get; set; }
+            
+            [Required]
+            [Display(Name = "City")]
+            public string City { get; set; }
+            
+            [Required]
+            [Display(Name = "District")]
+            public string District { get; set; }
+            
+            [Required]
+            [Display(Name = "ZipCode")]
+            public string ZipCode { get; set; }
+        }
+
+        public class LoginDetailsModel
+        {
             [Required]
             [EmailAddress]
             [Display(Name = "Email")]
             public string Email { get; set; }
             
-            [Required]
-            [Display(Name = "Nic")]
-            public string Nic { get; set; }
-
             [Required]
             [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
             [DataType(DataType.Password)]
@@ -79,24 +130,62 @@ namespace PUSL2020.Web.Areas.Identity.Pages.Account
             public string ConfirmPassword { get; set; }
         }
 
-
-        public async Task OnGetAsync(string returnUrl = null)
+        #endregion
+        
+        public class InputModel
         {
+            public PersonalDetailsModel PersonalDetails { get; set; } = new();
+            public ContactDetailsModel ContactDetails { get; set; } = new();
+            public LoginDetailsModel LoginDetails { get; set; } = new();
+        }
+
+        public Task OnGetAsync(string returnUrl = null)
+        {
+            var model = new InputModel
+            {
+                PersonalDetails =
+                {
+                    FirstName = "",
+                    LastName = "",
+                    MiddleName = "",
+                    Nic = ""
+                },
+                ContactDetails =
+                {
+                    Address =
+                    {
+                        Line1 = "",
+                        City = "",
+                        District = "",
+                        Street = "",
+                        ZipCode = ""
+                    }
+                },
+                LoginDetails =
+                {
+                    Email = "",
+                    Password = "",
+                    ConfirmPassword = ""
+                }
+            };
+            Input = model;
             ReturnUrl = returnUrl;
-            ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
+            
+            return Task.CompletedTask;
         }
 
         public async Task<IActionResult> OnPostAsync(string returnUrl = null)
         {
             returnUrl ??= Url.Content("~/");
-            ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
             if (ModelState.IsValid)
             {
-                var user = CreateUser(Input.Name, Input.Nic);
+                var email = Input.LoginDetails.Email;
+                var password = Input.LoginDetails.Password;
+                
+                var user = CreateReporter();
 
-                await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
-                await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
-                var result = await _userManager.CreateAsync(user, Input.Password);
+                await _emailStore.SetEmailAsync(user, email, CancellationToken.None);
+                var result = await _userManager.CreateAsync(user, password);
 
                 if (result.Succeeded)
                 {
@@ -111,12 +200,12 @@ namespace PUSL2020.Web.Areas.Identity.Pages.Account
                         values: new { area = "Identity", userId = userId, code = code, returnUrl = returnUrl },
                         protocol: Request.Scheme);
 
-                    await _emailSender.SendEmailAsync(Input.Email, "Confirm your email",
+                    await _emailSender.SendEmailAsync(email, "Confirm your email",
                         $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
 
                     if (_userManager.Options.SignIn.RequireConfirmedAccount)
                     {
-                        return RedirectToPage("RegisterConfirmation", new { email = Input.Email, returnUrl = returnUrl });
+                        return RedirectToPage("RegisterConfirmation", new { email = email, returnUrl = returnUrl });
                     }
                     else
                     {
@@ -134,15 +223,24 @@ namespace PUSL2020.Web.Areas.Identity.Pages.Account
             return Page();
         }
 
-        private ReporterUser CreateUser(string name, string nic)
+        private ReporterUser CreateReporter()
         {
             try
             {
                 var reporter = new PersonReporter()
                 {
-                    Name = new Name(),
-                    Nic = new Nic("951390988V")
+                    Email = Input.LoginDetails.Email,
+                    Name = new Name()
+                    {
+                        First = Input.PersonalDetails.FirstName,
+                        Middle = Input.PersonalDetails.MiddleName,
+                        Last = Input.PersonalDetails.LastName
+                    },
+                    Nic = new Nic(Input.PersonalDetails.Nic),
+                    PhoneNumber = Input.ContactDetails.Phone,
+                    Address = _mapper.Map<Domain.ValueObjects.Address>(Input.ContactDetails.Address)
                 };
+                
                 return new ReporterUser(reporter);
             }
             catch
