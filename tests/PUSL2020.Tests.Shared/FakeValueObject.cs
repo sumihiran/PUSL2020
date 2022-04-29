@@ -19,7 +19,7 @@ public static class FakeValueObject
         .RuleFor(b => b.Line1, f => f.Address.BuildingNumber())
         .RuleFor(b => b.Street, f => f.Address.StreetName())
         .RuleFor(b => b.City, f => f.Address.City())
-        .RuleFor(b => b.District, f => f.Address.State())
+        .RuleFor(b => b.District, f => f.PickRandom<District>())
         .RuleFor(b => b.ZipCode, f => f.Random.Int(10000, 99000));
 
     public static Faker<VehicleOwner> VehicleOwner => new Faker<VehicleOwner>()

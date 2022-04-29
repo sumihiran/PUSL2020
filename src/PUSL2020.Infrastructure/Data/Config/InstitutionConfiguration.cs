@@ -17,7 +17,6 @@ public class InstitutionConfiguration:
 
        builder.Property(i => i.Id);
        builder.HasKey(i => i.Id);
-       builder.OwnsOne(i => i.Address);
        builder.HasMany(i => i.Employees);
     }
 
@@ -28,7 +27,6 @@ public class InstitutionConfiguration:
 
        builder.Property(i => i.Id);
        builder.HasKey(i => i.Id);
-       builder.OwnsOne(i => i.Address);
        builder.HasMany(i => i.Employees);
     }
 
@@ -39,7 +37,6 @@ public class InstitutionConfiguration:
 
        builder.Property(i => i.Id);
        builder.HasKey(i => i.Id);
-       builder.OwnsOne(i => i.Address);
        builder.HasMany(i => i.Employees);
     }
 }

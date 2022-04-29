@@ -17,7 +17,6 @@ public static class FakeModel
 
     
     public static Faker<Insurance> Insurance => new Faker<Insurance>()
-        .RuleFor(i => i.Address, f => FakeValueObject.Address)
         .RuleFor(i => i.Name, f => f.Company.CompanyName())
         .RuleFor(i => i.PhoneNumber, f => f.Person.Phone);
 
