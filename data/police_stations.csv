@@ -1,0 +1,487 @@
+Province,Division,Station,Phone,
+Western Province,Colombo Central,Pettah,011-2323677
+Western Province,Colombo Central,Keselwatta,011-2384091
+Western Province,Colombo Central,Dam Street,
+Western Province,Colombo Central,Wolfendhal Street,
+Western Province,Colombo Central,Fort,011-2432635
+Western Province,Colombo Central,Slave Island,011-2384382
+Western Province,Colombo Central,Maradana,011-2692888
+Western Province,Colombo Central,Maligawatta,011-2342041
+Western Province,Colombo North,Colombo Harbour,011-2328903
+Western Province,Colombo North,Fore shore,011-2436349
+Western Province,Colombo North,Modara,011-2523058
+Western Province,Colombo North,Kotahena,011-2435653
+Western Province,Colombo North,Mattakkuliya,
+Western Province,Colombo North,Bluemandal,
+Western Province,Colombo North,Grandpass,011-2436258
+Western Province,Colombo North,Dematagoda,011-2693319
+Western Province,Colombo South,Kollupitiya,011-2320131
+Western Province,Colombo South,Bambalapitiya,011-2583208
+Western Province,Colombo South,Kirulapone,011-2514634
+Western Province,Colombo South,Wellawatta,011-2364860
+Western Province,Colombo South,Narahenpita,011-2588638
+Western Province,Colombo South,BMICH,011-2691140
+Western Province,Colombo South,Borella,011-2694019
+Western Province,Colombo South,Cinnamon Garden,011-2693377
+Western Province,Nugegoda,Mirihana,011-2854853
+Western Province,Nugegoda,Maharagama,011-2850700
+Western Province,Nugegoda,Boralesgamuwa,011-2150779
+Western Province,Nugegoda,Wellampitiya,011-2695719
+Western Province,Nugegoda,Thalangama,011-2789249
+Western Province,Nugegoda,Welikada,011-2864060
+Western Province,Nugegoda,Nawagamuwa,011-2415212
+Western Province,Nugegoda,Mulleriyawa,
+Western Province,Nugegoda,Homagama,011-2855211
+Western Province,Nugegoda,Kottawa,
+Western Province,Nugegoda,Athurugiriya,011-2561202
+Western Province,Nugegoda,Padukka,011-2859110
+Western Province,Nugegoda,Hanwella,036-2253982
+Western Province,Nugegoda,Gothatuwa,011-2411131
+Western Province,Nugegoda,Meepe,
+Western Province,Mount Lavinia,Mount Lavinia,011-2729622
+Western Province,Mount Lavinia,Piliyandala,011-2614258
+Western Province,Mount Lavinia,Angulana,
+Western Province,Mount Lavinia,Dehiwala,011-2713322
+Western Province,Mount Lavinia,Kohuwala,011-2853929
+Western Province,Mount Lavinia,Moratuwa,011-2645215
+Western Province,Mount Lavinia,Kahathuduwa,011-2705544
+Western Province,Mount Lavinia,Moratumulla,
+Western Province,Mount Lavinia,Egoda Uyana,
+Western Province,Kelaniya,Peliyagoda,011-2910608
+Western Province,Kelaniya,Kelaniya,011-2914666
+Western Province,Kelaniya,Kandana,011-2236895
+Western Province,Kelaniya,Wattala,011-2932222
+Western Province,Kelaniya,Mahabage,
+Western Province,Kelaniya,Sapugaskanda,011-2400316
+Western Province,Kelaniya,Biyagama,011-2487306
+Western Province,Kelaniya,Meegahawatta,
+Western Province,Kelaniya,Ja - Ela,011-2236131
+Western Province,Kelaniya,Ragama,011-2957197
+Western Province,Kelaniya,Kiribathgoda,011-2910494
+Western Province,Kelaniya,Kadawatha,011-2925258
+Western Province,Gampaha,Gampaha,033-2222226
+Western Province,Gampaha,Minuwangoda,011-2295223
+Western Province,Gampaha,Kirindiwela,033-2267445
+Western Province,Gampaha,Dompe,011-2409922
+Western Province,Gampaha,Pugoda,011-2405222
+Western Province,Gampaha,Ganemulla,033-2260911
+Western Province,Gampaha,Weeragula,033-2278020
+Western Province,Gampaha,Weliweriya,033-2256105
+Western Province,Gampaha,Malwathuhiripitiya,
+Western Province,Gampaha,Nittambuwa,033-2287225
+Western Province,Gampaha,Weyangoda,033-2287223
+Western Province,Gampaha,Meerigama,033-2274322
+Western Province,Gampaha,Pallewela,033-2271416
+Western Province,Gampaha,Yakkala,
+Western Province,Negombo,Negombo,031-2224289
+Western Province,Negombo,Kochchikade,031-2276338
+Western Province,Negombo,Pamunugama,011-2243494
+Western Province,Negombo,Kotadeniyawa,033-2240050
+Western Province,Negombo,Diulapitiya,031-2247256
+Western Province,Negombo,Seeduwa,011-2253522
+Western Province,Negombo,Raddolugama,
+Western Province,Negombo,Katunayaka,011-2252223
+Western Province,Negombo,Katana,031-2227740
+Western Province,Negombo,Dungalpitiya,031-2230889
+Western Province,Panadura,Panadura South,038-2232576
+Western Province,Panadura,Panadura North,038-2297804
+Western Province,Panadura,Wadduwa,038-2284855
+Western Province,Panadura,Bandaragama,038-2293922
+Western Province,Panadura,Anguruwatota,034-2251420
+Western Province,Panadura,Millaniya,034-2252722
+Western Province,Panadura,Horana,034-2261223
+Western Province,Panadura,Ingiriya,034-2269223
+Western Province,Panadura,Moragahahena,034-2253253
+Western Province,Panadura,Moronthuduwa,
+Western Province,Kalutara,Kalutara South,034-2222226
+Western Province,Kalutara,Kalutara North,034-2237841
+Western Province,Kalutara,Payagala,034-2222751
+Western Province,Kalutara,Dodangoda,
+Western Province,Kalutara,Aluthgama,034-2271350
+Western Province,Kalutara,Welipanna,
+Western Province,Kalutara,Beruwala,034-2279966
+Western Province,Kalutara,Mathugama,034-2247120
+Western Province,Kalutara,Bulathsinhala,034-2282292
+Western Province,Kalutara,Thebuwana,
+Western Province,Kalutara,Baduraliya,
+Western Province,Kalutara,Meegahathenna,
+Western Province,Kalutara,Thiniyawala,
+Western Province,Kalutara,Mattegoda,
+Central Province,Kandy,Kandy,081-2222226
+Central Province,Kandy,Dalada Maligawa,
+Central Province,Kandy,Katugastota,081-2499383
+Central Province,Kandy,Ankumbura,
+Central Province,Kandy,Galagedara,
+Central Province,Kandy,Hatharaliyadda,
+Central Province,Kandy,Thalathuoya,
+Central Province,Kandy,Hanguranketha,081-2369223
+Central Province,Kandy,Pallekele,
+Central Province,Kandy,Peradeniya,081-2388033
+Central Province,Kandy,Daulagala,
+Central Province,Kandy,Kadugannawa,081-2571416
+Central Province,Kandy,Alawathugoda,
+Central Province,Kandy,Welambada,
+Central Province,Kandy,Poojapitiya,
+Central Province,Gampola,Gampola,081-2352319
+Central Province,Gampola,Pussellawa,081-2478360
+Central Province,Gampola,Nawa Kurunduwatta,081-2357222
+Central Province,Gampola,Nawalapitiya,054-2222427
+Central Province,Gampola,Galaha,
+Central Province,Theldeniya,Theldeniya,081-2375719
+Central Province,Theldeniya,Wattegama,081-2476328
+Central Province,Theldeniya,Ududumbara,
+Central Province,Theldeniya,Manikhinna,
+Central Province,Theldeniya,Rangala,
+Central Province,Theldeniya,Panwila,081-2472223
+Central Province,Theldeniya,Hasalaka,
+Central Province,Matale,Matale,066-2222226
+Central Province,Matale,Rattota,066-2255224
+Central Province,Matale,Mahawela,
+Central Province,Matale,Yatawatta,
+Central Province,Matale,Laggala,
+Central Province,Matale,Naula,
+Central Province,Matale,Wilgamuwa,
+Central Province,Matale,Dambulla,066-2284703
+Central Province,Matale,Galewela,
+Central Province,Matale,Sigiriya,
+Central Province,Nuwaraeliya,Nuwaraeliya,052-2222226
+Central Province,Nuwaraeliya,Pudalu oya,051-2233422
+Central Province,Nuwaraeliya,Nanuoya,052-2222667
+Central Province,Nuwaraeliya,Kotmale,052-2259544
+Central Province,Nuwaraeliya,Kandapola,052-2229889
+Central Province,Nuwaraeliya,Thalawakale,052-2258579
+Central Province,Nuwaraeliya,Agarapathana,051-2230332
+Central Province,Nuwaraeliya,Lindula,052-2258411
+Central Province,Nuwaraeliya,Dimbulapathana,051-2244427
+Central Province,Nuwaraeliya,Dayagama,
+Central Province,Nuwaraeliya,Walapone,052-2279351
+Central Province,Nuwaraeliya,Ragala,052-2265788
+Central Province,Nuwaraeliya,Udupussellawa,052-2269388
+Central Province,Nuwaraeliya,Maturata,052-2287445
+Central Province,Nuwaraeliya,Theripaha,
+Central Province,Nuwaraeliya,Mandaram Nuwara,
+Central Province,Nuwaraeliya,Pattipola,
+Central Province,Hatton,Hatton,051-2222520
+Central Province,Hatton,Watawala,
+Central Province,Hatton,Ginigathhena,051-2242355
+Central Province,Hatton,Nortonbridge,051-2232206
+Central Province,Hatton,Nallathanni,052-2022500
+Central Province,Hatton,Bogawanthalawa,
+Central Province,Hatton,Norwood,
+Central Province,Hatton,Maskeliya,
+Southern Province,Matara,Matara,041-2222727
+Southern Province,Matara,Gandara,041-2259159
+Southern Province,Matara,Dikwella,041-2255277
+Southern Province,Matara,Thihagoda,041-2245271
+Southern Province,Matara,Kamburupitiya,041-2292223
+Southern Province,Matara,Hakmana,041-2286223
+Southern Province,Matara,Morawaka,041-2282323
+Southern Province,Matara,Urubokka,041-2272223
+Southern Province,Matara,Mawarala,041-2291348
+Southern Province,Matara,Deniyaya,041-2273710
+Southern Province,Matara,Weligama,041-2250226
+Southern Province,Matara,Akuressa,041-2283530
+Southern Province,Matara,Kananke,
+Southern Province,Matara,Pitabeddara,
+Southern Province,Matara,Kotawila,041-2232001
+Southern Province,Matara,Kosmodara,
+Southern Province,Matara,Malimbada,
+Southern Province,Matara,Rotumba,
+Southern Province,Matara,Deyyandara,
+Southern Province,Galle,Galle,091-2234962
+Southern Province,Galle,Ratgama,091-2267575
+Southern Province,Galle,Hikkaduwa,
+Southern Province,Galle,Akmeemana,
+Southern Province,Galle,Wanduramba,
+Southern Province,Galle,Yakkalamulla,
+Southern Province,Galle,Poddala,091-3903300
+Southern Province,Galle,Habaraduwa,091-2283281
+Southern Province,Galle,Ahangama,
+Southern Province,Galle,Galle Harbour,
+Southern Province,Galle,Nagoda,
+Southern Province,Galle,Hiniduma,
+Southern Province,Galle,Neluwa,
+Southern Province,Galle,Udugama,
+Southern Province,Galle,Imaduwa,091-2286011
+Southern Province,Elpitiya,Elpitiya,091-2291226
+Southern Province,Elpitiya,Uragasmanhandiya,
+Southern Province,Elpitiya,Pitigala,
+Southern Province,Elpitiya,Karandeniya,
+Southern Province,Elpitiya,Baddegama,
+Southern Province,Elpitiya,Meetiyagoda,
+Southern Province,Elpitiya,Thelikada,
+Southern Province,Elpitiya,Ambalangoda,091-2258225
+Southern Province,Elpitiya,Ahungalla,
+Southern Province,Elpitiya,Kosgoda,
+Southern Province,Elpitiya,Bentota,
+Southern Province,Tangalle,Tangalle,047-2240223
+Southern Province,Tangalle,Hungama,
+Southern Province,Tangalle,Weeraketiya,
+Southern Province,Tangalle,Angunakolapelessa,
+Southern Province,Tangalle,Walasmulla,
+Southern Province,Tangalle,Beliatta,
+Southern Province,Tangalle,Katuwana,
+Southern Province,Tangalle,Middeniya,
+Southern Province,Tangalle,Sooriyawewa,
+Southern Province,Tangalle,Hambantota,047-2220223
+Southern Province,Tangalle,Ambalantota,047-2223223
+Southern Province,Tangalle,Tissamaharamaya,047-2237233
+Southern Province,Tangalle,Kataragama,047-2235223
+Southern Province,Tangalle,Lunugamwehera,
+Southern Province,Tangalle,Weeravila,047-2238239
+Southern Province,Tangalle,Kirinda,
+Northern Province,Kankasanthurai,Kankasanthurai,021-3202305
+Northern Province,Kankasanthurai,Ilavalai,
+Northern Province,Kankasanthurai,Achchuweli,
+Northern Province,Kankasanthurai,Thelippalay,
+Northern Province,Kankasanthurai,Palali,021-3202668
+Northern Province,Kankasanthurai,Point Pedro,
+Northern Province,Kankasanthurai,Valvettiththurai,
+Northern Province,Kankasanthurai,Nelliadi,
+Northern Province,Jaffna,Jaffna,021-3211257
+Northern Province,Jaffna,Manippai,
+Northern Province,Jaffna,Chunnakam,
+Northern Province,Jaffna,Kayts,021-3205483
+Northern Province,Jaffna,Delft,021-2215222
+Northern Province,Jaffna,Vaddukoddai,
+Northern Province,Jaffna,Chawakachcheri,
+Northern Province,Jaffna,Kopai,
+Northern Province,Jaffna,Kodikamam,
+Northern Province,Vavuniya,Kanagarayankulam,021-3205956
+Northern Province,Vavuniya,Vavuniya,024-2222226
+Northern Province,Vavuniya,Irattaperiyakulam,
+Northern Province,Vavuniya,Nedumkenrni,
+Northern Province,Vavuniya,Chettikulam,024-2260945
+Northern Province,Vavuniya,Omantha,
+Northern Province,Vavuniya,Puliyankulam,
+Northern Province,Vavuniya,Parayanakulam,024-3200558
+Northern Province,Vavuniya,Ulukkulam,024-3202002
+Northern Province,Vavuniya,Ma-Maduwa,024-2053205
+Northern Province,Vavuniya,Puwarasamkulam,024-3123200
+Northern Province,Vavuniya,Echchanmkulam,024-2054242
+Northern Province,Vavuniya,Bogaswewa,
+Northern Province,Kilinochchi,Kilinochchi,021-2285457
+Northern Province,Kilinochchi,Palei,
+Northern Province,Kilinochchi,Punarin,
+Northern Province,Kilinochchi,Nachchikudha,
+Northern Province,Kilinochchi,Mulankavil,023-3238043
+Northern Province,Kilinochchi,Dharmapuram,021-2283060
+Northern Province,Kilinochchi,Akkarayamkulam,
+Northern Province,Mannar,Mannar,023-2222227
+Northern Province,Mannar,Silawathura,
+Northern Province,Mannar,Iluppakadawai,
+Northern Province,Mannar,Wedithalathiu,023-2050840
+Northern Province,Mannar,Thalaimannar,
+Northern Province,Mannar,Murunkan,
+Northern Province,Mannar,Madu,
+Northern Province,Mannar,Wankala,023-3232364
+Northern Province,Mannar,Pesale,023-2050238
+Northern Province,Mulathivu,Mankulam,021-2060000
+Northern Province,Mulathivu,Mullativu,021-2290119
+Northern Province,Mulathivu,Pudukuduiruppu,
+Northern Province,Mulathivu,Muliyaweli,021-2061311
+Northern Province,Mulathivu,Oddusudan,021-2061767
+Northern Province,Mulathivu,Welioya,025-3857264
+Northern Province,Mulathivu,Mallavi,
+Eastern Province,Batticaloa,Batticaloa,065-2224423
+Eastern Province,Batticaloa,Vavunathive,
+Eastern Province,Batticaloa,Kaththankudi,
+Eastern Province,Batticaloa,Eravur,
+Eastern Province,Batticaloa,Karadiyanaru,065-3646229
+Eastern Province,Batticaloa,Aiththamalai,065-3647514
+Eastern Province,Batticaloa,Valachchanai,065-2257347
+Eastern Province,Batticaloa,Kalkudah,
+Eastern Province,Batticaloa,Wakarai,065-3658910
+Eastern Province,Batticaloa,Kalawanchikudy,
+Eastern Province,Batticaloa,Vellavali,065-2056305
+Eastern Province,Batticaloa,Kokkadicholai,065-3647511
+Eastern Province,Ampara,Ampara,063-2222223
+Eastern Province,Ampara,Damana,063-2240195
+Eastern Province,Ampara,Inginiyagala,063-2242042
+Eastern Province,Ampara,Uhana,063-3634083
+Eastern Province,Ampara,Bakkiella,
+Eastern Province,Ampara,Central Camp,
+Eastern Province,Ampara,Mangalagama,
+Eastern Province,Ampara,Mahaoya,063-2244107
+Eastern Province,Ampara,Dehiaththakandiya,
+Eastern Province,Ampara,Padiyathalawa,
+Eastern Province,Ampara,Kalmunai,067-2229226
+Eastern Province,Ampara,Samanthurai,067-2260221
+Eastern Province,Ampara,Chawalakade,
+Eastern Province,Ampara,Akkaraipattu,067-2277239
+Eastern Province,Ampara,Thirukkovil,
+Eastern Province,Ampara,Pothuvil,
+Eastern Province,Ampara,Panama,
+Eastern Province,Trincomalee,Trincomalee,026-2222227
+Eastern Province,Trincomalee,Trinco Harbour Police,
+Eastern Province,Trincomalee,Chinabay,026-2233223
+Eastern Province,Trincomalee,Kuchchaweli,026-2252622
+Eastern Province,Trincomalee,Uppuweli,026-2222380
+Eastern Province,Trincomalee,Pulmudai,026-2256121
+Eastern Province,Trincomalee,Sripura,025-2255062
+Eastern Province,Trincomalee,Nilawely,026-3208062
+Eastern Province,Trincomalee,Mutur,
+Eastern Province,Trincomalee,Sampoor,026-2051812
+Eastern Province,Trincomalee,Kinnia,
+Eastern Province,Kantale,Kantale,026-2234223
+Eastern Province,Kantale,Agbopura,026-2244222
+Eastern Province,Kantale,Thambalagamuva,026-2248221
+Eastern Province,Kantale,Serunuwara,
+Eastern Province,Kantale,Suriyapura,026-3208223
+Eastern Province,Kantale,Wan Ela,
+Eastern Province,Kantale,Morawewa,026-2225822
+Eastern Province,Kantale,Gomarankadawala,026-2255031
+North Western Province,Kurunagala,Kurunegala,037-2222226
+North Western Province,Kurunagala,Polgahawela,037-2243226
+North Western Province,Kurunagala,Alawwa,037-2278127
+North Western Province,Kurunagala,Pothuhera,037-2237585
+North Western Province,Kurunagala,Wariyapola,037-2267226
+North Western Province,Kurunagala,Weerambugedara,037-2050222
+North Western Province,Kurunagala,Wellawa,037-2235101
+North Western Province,Kurunagala,Gokarella,037-2250526
+North Western Province,Kurunagala,Mawathagama,037-2299269
+North Western Province,Kurunagala,Rideegama,037-2252023
+North Western Province,Kurunagala,Kumbukgatey,037-2264202
+North Western Province,Kuliyapitiya,Kuliyapitiya,037-2281223
+North Western Province,Kuliyapitiya,Narammala,037-2249060
+North Western Province,Kuliyapitiya,Pannala,037-2246036
+North Western Province,Kuliyapitiya,Giriulla,037-2288026
+North Western Province,Kuliyapitiya,Hettipola,037-2291023
+North Western Province,Kuliyapitiya,Katupotha,037-2247474
+North Western Province,Kuliyapitiya,Dummalasooriya,032-2240600
+North Western Province,Kuliyapitiya,Bingiriya,
+North Western Province,Nikaweratiya,Nikaweratiya,037-2260361
+North Western Province,Nikaweratiya,Kobeigane,
+North Western Province,Nikaweratiya,Kotawehera,
+North Western Province,Nikaweratiya,Rasnayakapura,
+North Western Province,Nikaweratiya,Maho,037-2275223
+North Western Province,Nikaweratiya,Ambanpola,
+North Western Province,Nikaweratiya,Polpithigama,
+North Western Province,Nikaweratiya,Galgamuwa,
+North Western Province,Nikaweratiya,Meegalewa,
+North Western Province,Nikaweratiya,Giribawa,
+North Western Province,Puttalam,Puttalam,032-2265422
+North Western Province,Puttalam,Anamaduwa,032-2263221
+North Western Province,Puttalam,Pallama,
+North Western Province,Puttalam,Nawagaththegama,
+North Western Province,Puttalam,Wanathawilluwa,
+North Western Province,Puttalam,Karuwalagaswewa,
+North Western Province,Puttalam,Saliyawewa,
+North Western Province,Puttalam,Kalpitiya,032-2260112
+North Western Province,Puttalam,Mundal,
+North Western Province,Puttalam,Norochcholey,032-2268950
+North Western Province,Puttalam,Udappuwa,
+North Western Province,Chilaw,Chilaw,032-2222221
+North Western Province,Chilaw,Madampe,032-2247222
+North Western Province,Chilaw,Marawila,032-2252262
+North Western Province,Chilaw,Koswatta,
+North Western Province,Chilaw,Wennappuwa,031-2255667
+North Western Province,Chilaw,Dankotuwa,031-2259400
+North Western Province,Chilaw,Arachchikattuwa,
+North Central Province,Anuradhapura,Anuradapura,025-2222229
+North Central Province,Anuradhapura,Hidogama,
+North Central Province,Anuradhapura,Udamaluwa,
+North Central Province,Anuradhapura,Mihintale,
+North Central Province,Anuradhapura,Kekirawa,025-2264226
+North Central Province,Anuradhapura,Thirappone,
+North Central Province,Anuradhapura,Eppawala,
+North Central Province,Anuradhapura,Galnewa,025-2269523
+North Central Province,Anuradhapura,Galkiriyagama,
+North Central Province,Anuradhapura,Kebithigollawa,025-2298623
+North Central Province,Anuradhapura,Medawachchiya,025-2245888
+North Central Province,Anuradhapura,Padaviya,025-2253146
+North Central Province,Anuradhapura,Thambuttegama,025-2276223
+North Central Province,Anuradhapura,Rajanganaya,025-3771842
+North Central Province,Anuradhapura,Nochchiyagama,
+North Central Province,Anuradhapura,Thalawa,
+North Central Province,Anuradhapura,Horowpathana,025-2277426
+North Central Province,Anuradhapura,Kahatagasdigiliya,
+North Central Province,Anuradhapura,Thanthirimalaya,
+North Central Province,Anuradhapura,Mahawilachchiya,
+North Central Province,Anuradhapura,Galenbidunuwewa,
+North Central Province,Anuradhapura,Ipalogama,
+North Central Province,Anuradhapura,Parasangaswewa,
+North Central Province,Anuradhapura,Moragoda,
+North Central Province,Polonnaruwa,Polonnaruwa,027-2222226
+North Central Province,Polonnaruwa,Pulasthipura,
+North Central Province,Polonnaruwa,Welikanda,027-2259098
+North Central Province,Polonnaruwa,Aralaganwila,027-2257222
+North Central Province,Polonnaruwa,Hingurakgoda,027-2246224
+North Central Province,Polonnaruwa,Medirigiriya,027-2448695
+North Central Province,Polonnaruwa,Habarana,066-2270722
+North Central Province,Polonnaruwa,Bakamuna,066-2256889
+North Central Province,Polonnaruwa,Minneriya,027-2245422
+Uva Province,Badulla,Badulla,055-2222226
+Uva Province,Badulla,Passara,055-2288114
+Uva Province,Badulla,Madolseema,
+Uva Province,Badulla,Lunugala,
+Uva Province,Badulla,Mahiyangane,
+Uva Province,Badulla,Giradurukotte,
+Uva Province,Badulla,Kandaketiya,
+Uva Province,Badulla,Haliela,055-2295988
+Uva Province,Badulla,Redeemaliyadda / (Kanugolla),
+Uva Province,Bandarawela,Bandarawela,057-2222226
+Uva Province,Bandarawela,Ella,057-2228850
+Uva Province,Bandarawela,Welimada,057-2244700
+Uva Province,Bandarawela,Uvaparanagama,057-2232727
+Uva Province,Bandarawela,Etempitiya,055-2295466
+Uva Province,Bandarawela,Haputale,057-2268700
+Uva Province,Bandarawela,Diyathalawa,057-2229977
+Uva Province,Bandarawela,Koslanda,
+Uva Province,Bandarawela,Bogahakumbura,057-2280119
+Uva Province,Monaragala,Monaragala,055-2276223
+Uva Province,Monaragala,Siyambalanduwa,
+Uva Province,Monaragala,Dambagalla,
+Uva Province,Monaragala,Athimale,
+Uva Province,Monaragala,Bibila,
+Uva Province,Monaragala,Medagama,
+Uva Province,Monaragala,Buttala,055-2276223
+Uva Province,Monaragala,Badalkumbura,
+Uva Province,Monaragala,Gonaganara,
+Uva Province,Monaragala,wellawaya,055-2274578
+Uva Province,Monaragala,Thanamalwila,047-2285022
+Uva Province,Monaragala,Hambegamuwa,
+Uva Province,Monaragala,Mahakalugolla,
+Uva Province,Monaragala,Kudaoya,
+Uva Province,Monaragala,Okkampitiya,
+Uva Province,Monaragala,Karandugala,
+Uva Province,Monaragala,14 Miles (Govindapura),
+Sabaragamuwa Province,Ratnapura,Ratnapura,045-2222897
+Sabaragamuwa Province,Ratnapura,Wewalwatta,
+Sabaragamuwa Province,Ratnapura,Balangoda,045-2287422
+Sabaragamuwa Province,Ratnapura,Opanayaka,
+Sabaragamuwa Province,Ratnapura,Kaltota,
+Sabaragamuwa Province,Ratnapura,Weligepola,045-2227122
+Sabaragamuwa Province,Ratnapura,Kahawatta,045-2270488
+Sabaragamuwa Province,Ratnapura,Rakwana,045-2246231
+Sabaragamuwa Province,Ratnapura,Ayagama,
+Sabaragamuwa Province,Ratnapura,Kalawana,045-2255922
+Sabaragamuwa Province,Ratnapura,Nivithigala,045-2279223
+Sabaragamuwa Province,Ratnapura,Kuruwita,045-2262223
+Sabaragamuwa Province,Ratnapura,Ehaliyagoda,036-2258390
+Sabaragamuwa Province,Ratnapura,Kiriella,
+Sabaragamuwa Province,Ratnapura,Pinnawala,
+Sabaragamuwa Province,Ratnapura,Siripagama,045-3451122
+Sabaragamuwa Province,Ratnapura,Pelmadulla,
+Sabaragamuwa Province,Embilipitiya,Godakawela,045-2240323
+Sabaragamuwa Province,Embilipitiya,Udawalawa,
+Sabaragamuwa Province,Embilipitiya,Kolonna,
+Sabaragamuwa Province,Embilipitiya,Panamure,
+Sabaragamuwa Province,Embilipitiya,Embilipitiya,047-2230223
+Sabaragamuwa Province,Embilipitiya,Kuttigala,
+Sabaragamuwa Province,Embilipitiya,Sewanagala,047-2231321
+Sabaragamuwa Province,Kagalle,Kegalle,035-2222226
+Sabaragamuwa Province,Kagalle,Wrakapola,035-2267967
+Sabaragamuwa Province,Kagalle,Aranayaka,
+Sabaragamuwa Province,Kagalle,Dedigama,
+Sabaragamuwa Province,Kagalle,Mawanella,035-2247222
+Sabaragamuwa Province,Kagalle,Rambukkana,035-2265333
+Sabaragamuwa Province,Kagalle,Pindeniya,
+Sabaragamuwa Province,Kagalle,Hemmathagama,035-2257116
+Sabaragamuwa Province,Seethawakapura,Awissawella,036-2222380
+Sabaragamuwa Province,Seethawakapura,Kosgama,036-2255026
+Sabaragamuwa Province,Seethawakapura,Deraniyagala,
+Sabaragamuwa Province,Seethawakapura,Ruwanwella,036-2267522
+Sabaragamuwa Province,Seethawakapura,Yatiyantota,
+Sabaragamuwa Province,Seethawakapura,Kithulgala,
+Sabaragamuwa Province,Seethawakapura,Bulathkohupitiya,

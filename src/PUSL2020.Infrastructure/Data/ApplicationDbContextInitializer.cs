@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using PUSL2020.Application.Identity.Models;
 
@@ -7,6 +8,7 @@ namespace PUSL2020.Infrastructure.Data;
 
 public class ApplicationDbContextInitializer
 {
+    private readonly IServiceProvider _serviceProvider;
     private readonly ILogger<ApplicationDbContextInitializer> _logger;
     private readonly ApplicationDbContext _context;
     private readonly UserManager<EmployeeUser> _employeeManager;
@@ -18,14 +20,14 @@ public class ApplicationDbContextInitializer
         ApplicationDbContext context,
         UserManager<EmployeeUser> employeeManager,
         UserManager<ReporterUser> reporterManager,
-        UserManager<WebMaster> webmasterManager
-    )
+        UserManager<WebMaster> webmasterManager, IServiceProvider serviceProvider)
     {
         _logger = logger;
         _context = context;
         _employeeManager = employeeManager;
         _reporterManager = reporterManager;
         _webmasterManager = webmasterManager;
+        _serviceProvider = serviceProvider;
     }
 
     public async Task InitialiseAsync()
@@ -46,6 +48,11 @@ public class ApplicationDbContextInitializer
 
     public async Task SeedAsync()
     {
+        var seeder = ActivatorUtilities.CreateInstance<MasterDataSeeder>(_serviceProvider);
+        await seeder.SeedRdaOffices();
+        await seeder.SeedRdaOffices();
+        await seeder.SeedPoliceStations();
+        
         var admin = new WebMaster()
         {
             UserName = "admin"
