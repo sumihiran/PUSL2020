@@ -7,11 +7,11 @@ using Xunit;
 
 namespace PUSL2020.Infrastructure.Tests;
 
-public abstract class BaseDbSetTests :  IClassFixture<InMemoryApplicationDbContextFixture>, IAsyncLifetime
+public abstract class BaseDbSetTests :  IClassFixture<ApplicationContextFixture>, IAsyncLifetime
 {
-    private readonly InMemoryApplicationDbContextFixture _fixture;
+    private readonly ApplicationContextFixture _fixture;
 
-    public BaseDbSetTests(InMemoryApplicationDbContextFixture fixture)
+    public BaseDbSetTests(ApplicationContextFixture fixture)
     {
         _fixture = fixture;
     }

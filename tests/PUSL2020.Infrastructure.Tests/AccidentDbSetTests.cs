@@ -12,7 +12,7 @@ namespace PUSL2020.Infrastructure.Tests;
 
 public class AccidentDbSetTests  : BaseDbSetTests
 {
-    public AccidentDbSetTests(InMemoryApplicationDbContextFixture fixture) : base(fixture)
+    public AccidentDbSetTests(ApplicationContextFixture fixture) : base(fixture)
     {
     }
 

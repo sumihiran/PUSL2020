@@ -16,12 +16,13 @@ public interface IApplicationDbContext
 
     #endregion
 
-    #region Employees
+    
     
     public DbSet<PoliceStation> PoliceStations { get; set; }
     public DbSet<RdaOffice> RdaOffices { get; set; }
     public DbSet<Insurance> Insurances { get; set; }
-
+    
+    #region Employees
 
     public DbSet<Employee> Employees { get; set; }
     public DbSet<EmployeeUser> EmployeeUsers { get; set; }
@@ -34,11 +35,12 @@ public interface IApplicationDbContext
     
    
     public DbSet<WebMaster> WebMasters { get; set; }
-   
     
     public DbSet<ImageResource> Images { get; set; }
     
     public DbSet<Vehicle> Vehicles { get; set; }
     
     public DbSet<Accident> Accidents { get; set; }
+
+    public DbSet<T> Set<T>() where T : class;
 }

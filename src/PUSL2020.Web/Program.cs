@@ -5,11 +5,14 @@ using PUSL2020.Application;
 using PUSL2020.Application.Identity;
 using PUSL2020.Application.Identity.Models;
 using PUSL2020.Application.Services;
+using PUSL2020.Application.Services.Impl;
 using PUSL2020.Infrastructure;
 using PUSL2020.Infrastructure.Data;
 using PUSL2020.Web.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddAutoMapper(typeof(Program));
 
 builder.Services.AddProxies();
 builder.Services.AddKendo();
@@ -65,6 +68,17 @@ builder.Services.AddControllersWithViews()
     {
         opt.JsonSerializerOptions.PropertyNamingPolicy = null;
     });
+
+if (!builder.Environment.IsProduction())
+{
+    builder.Services.Configure<IdentityOptions>(opt =>
+    {
+        opt.Password.RequireDigit = false;
+        opt.Password.RequireLowercase = false;
+        opt.Password.RequireUppercase = false;
+        opt.Password.RequireNonAlphanumeric = false;
+    });
+}
 
 
 var app = builder.Build();

@@ -12,11 +12,11 @@ using Xunit;
 
 namespace PUSL2020.Infrastructure.Tests;
 
-public class VehicleDbSetTests : IClassFixture<InMemoryApplicationDbContextFixture>, IAsyncLifetime
+public class VehicleDbSetTests : IClassFixture<ApplicationContextFixture>, IAsyncLifetime
 {
-    private readonly InMemoryApplicationDbContextFixture _fixture;
+    private readonly ApplicationContextFixture _fixture;
 
-    public VehicleDbSetTests(InMemoryApplicationDbContextFixture fixture)
+    public VehicleDbSetTests(ApplicationContextFixture fixture)
     {
         _fixture = fixture;
     }

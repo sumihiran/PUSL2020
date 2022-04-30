@@ -1,7 +1,9 @@
 using System.Globalization;
+using System.Reflection;
 using CsvHelper;
 using CsvHelper.Configuration;
 using CsvHelper.Configuration.Attributes;
+using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using PUSL2020.Domain.Entities.Institutions;
@@ -30,14 +32,16 @@ public class MasterDataSeeder
 
     public async Task SeedPoliceStations()
     {
-        var csvFile = Path.Combine(_env.ContentRootPath, "Data", "MasterData", "police_stations.csv");
+        
+        var embedded = new EmbeddedFileProvider(typeof(MasterDataSeeder).Assembly);
+        var csvFile = embedded.GetFileInfo("Data/MasterData/police_stations.csv");
 
-        if (!File.Exists(csvFile))
+        if (!csvFile.Exists)
         {
             throw new FileNotFoundException($"Location: {csvFile}");
         }
 
-        using var reader = new StreamReader(csvFile);
+        using var reader = new StreamReader(csvFile.CreateReadStream());
         using var csv = new CsvReader(reader, CsvConfiguration);
         var records = csv.GetRecordsAsync<PoliceStationRecord>();
 
@@ -51,8 +55,8 @@ public class MasterDataSeeder
                 Province = record.Province,
                 PhoneNumber = record.Phone
             });
-            _logger.LogInformation("[PoliceStation:{i}] Area ={Area}, Division={Division}", ++i, record.Station,
-                record.Division);
+            // _logger.LogInformation("[PoliceStation:{i}] Area ={Area}, Division={Division}", ++i, record.Station,
+                // record.Division);
         }
 
         await _dbContext.SaveChangesAsync();
@@ -60,14 +64,15 @@ public class MasterDataSeeder
 
     public async Task SeedInsurances()
     {
-        var csvFile = Path.Combine(_env.ContentRootPath, "Data", "MasterData", "insurances.csv");
+        var embedded = new EmbeddedFileProvider(typeof(MasterDataSeeder).Assembly);
+        var csvFile = embedded.GetFileInfo("Data/MasterData/insurances.csv");
 
-        if (!File.Exists(csvFile))
+        if (!csvFile.Exists)
         {
             throw new FileNotFoundException($"Location: {csvFile}");
         }
 
-        using var reader = new StreamReader(csvFile);
+        using var reader = new StreamReader(csvFile.CreateReadStream());
 
         using var csv = new CsvReader(reader, CsvConfiguration);
         var records = csv.GetRecordsAsync<InsuranceRecord>();
@@ -81,7 +86,7 @@ public class MasterDataSeeder
                 Address = record.Address,
                 PhoneNumber = record.Phone
             });
-            _logger.LogInformation("[Insurance:{i}] Name ={Name}", ++i, record.Name);
+            // _logger.LogInformation("[Insurance:{i}] Name ={Name}", ++i, record.Name);
         }
 
         await _dbContext.SaveChangesAsync();
@@ -97,7 +102,7 @@ public class MasterDataSeeder
             {
                 District = Enum.Parse<District>(district)
             });
-            _logger.LogInformation("[RdaOffice:{i}] District ={District}", ++i, district);
+            // _logger.LogInformation("[RdaOffice:{i}] District = {District}", ++i, district);
         }
         await _dbContext.SaveChangesAsync();
     }

@@ -9,10 +9,10 @@ using PUSL2020.Web.Areas.Admin.ViewModels;
 
 namespace PUSL2020.Web.Areas.Admin.Controllers;
 
-[Controller]
-[AdminAuthorize]
-[Area("Admin")]
-[Route("/Admin")]
+// [Controller]
+// [AdminAuthorize]
+// [Area("Admin")]
+// [Route("/Admin")]
 public class EmployeeController : Controller
 {
     private readonly ApplicationDbContext _context;

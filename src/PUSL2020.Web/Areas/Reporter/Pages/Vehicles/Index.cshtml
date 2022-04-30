@@ -1,0 +1,46 @@
+@page
+@model IndexModel
+@inject Microsoft.AspNetCore.Antiforgery.IAntiforgery Xsrf
+@inject LinkGenerator LinkGenerator
+@Html.AntiForgeryToken()
+@{
+    ViewData["Title"] = "Vehicles";
+}
+
+<div>
+    @(Html.Kendo().Grid<IndexModel.VehicleModel>()
+        .Name("grid")
+        .Groupable()
+        .Sortable()
+        .Scrollable()
+        .ToolBar(x => x.Search())
+        .Columns(columns =>
+        {
+            columns.Bound(c => c.Vrn);
+            columns.Bound(c => c.Make);
+            columns.Bound(c => c.VModel);
+            columns.Bound(c => c.EditUrl)
+                .ClientTemplate(
+                    "<a class='k-button k-button-md k-rounded-md k-button-solid k-button-solid-base' href='#= EditUrl #'>Edit</a>");
+            columns.Command(column =>
+            {
+                column.Destroy();
+            }).Width(230);
+        })
+        .DataSource(ds => ds.Ajax()
+            .Read(r => r.Url("?handler=Read").Data("forgeryToken"))
+            .Model(m => m.Id(id => id.Vrn))
+            .PageSize(10)
+        )
+        .Pageable()
+        )
+</div>
+
+@section Scripts
+{
+    <script>
+        function forgeryToken() {
+            return kendo.antiForgeryTokens();
+        }
+    </script>
+}

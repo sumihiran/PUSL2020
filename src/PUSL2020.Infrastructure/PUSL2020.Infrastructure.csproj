@@ -23,13 +23,9 @@
     </ItemGroup>
 
     <ItemGroup>
-        <Content Include="..\..\data\*.csv" LinkBase="Data\MasterData">
+        <EmbeddedResource Include="..\..\data\*.csv" LinkBase="Data\MasterData">
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-        </Content>
-    </ItemGroup>
-    
-    <ItemGroup>
-      <Folder Include="Services" />
+        </EmbeddedResource>
     </ItemGroup>
 
     <ItemGroup>

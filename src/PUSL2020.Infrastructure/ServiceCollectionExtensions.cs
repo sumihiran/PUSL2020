@@ -4,10 +4,15 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Minio.AspNetCore;
+using PUSL2020.Application.Data;
+using PUSL2020.Application.Data.Impl;
 using PUSL2020.Application.Identity.Models;
+using PUSL2020.Application.Services;
+using PUSL2020.Application.Services.Impl;
 using PUSL2020.Domain.ValueObjects;
 using PUSL2020.Infrastructure.Data;
 using PUSL2020.Infrastructure.Identity;
+using PUSL2020.Infrastructure.Services;
 
 namespace PUSL2020.Infrastructure;
 
@@ -37,6 +42,11 @@ public static class ServiceCollectionExtensions
                 o.UseSqlServer(connectionString);
             }
         });
+        services.AddScoped<IApplicationDbContext>(sp => sp.GetRequiredService<ApplicationDbContext>());
+        services.AddTransient<IReporterRepository, ReporterRepository>();
+        services.AddTransient<IVehicleRepository, VehicleRepository>();
+        services.AddTransient<IVehicleService, VehicleService>();
+        services.AddScoped<IUnitOfWork, UnitOfWork>();
         
         // Identity
         services

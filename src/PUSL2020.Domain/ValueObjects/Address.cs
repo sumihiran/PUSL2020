@@ -11,4 +11,17 @@ public class Address
     public string? City { get; set; }
     public District District { get; set; }
     public int? ZipCode { get; set; }
+
+    public Address Clone()
+    {
+        return new Address()
+        {
+            Line1 = this.Line1,
+            Line2 = this.Line2,
+            Street = this.Street,
+            City = this.City,
+            District = this.District,
+            ZipCode = this.ZipCode
+        };
+    }
 }

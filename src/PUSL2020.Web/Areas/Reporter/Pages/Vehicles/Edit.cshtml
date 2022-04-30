@@ -1,0 +1,65 @@
+@page "/Reporter/Vehicles/Edit/{vrn}"
+@model EditModel
+@{
+    ViewData["Title"] = "Edit Vehicle " + Model.Vrn;
+}
+
+<h1>Edit</h1>
+
+@(Html.Kendo().Form<EditModel.InputModel>()
+        .Name("vehicle-add")
+        .FormData(Model.Input)
+        .HtmlAttributes(new { method = "POST" })
+        .Layout("grid")
+        .Grid(g => g.Cols(2).Gutter(20))
+    .Validatable(v =>
+        {
+            v.ValidateOnBlur(true);
+            v.ValidationSummary(vs => vs.Enable(false));
+        })
+    .Items(items =>
+        {
+            items.AddGroup()
+                .Label("Registration Information")
+                .Layout("grid")
+                .Grid(g => g.Cols(1).Gutter(10))
+                .Items(i =>
+                {
+                   i.Add()
+                        .Field(f => f.Make)
+                        .Label(l => l.Text("Make:"));
+                    i.Add()
+                        .Field(f => f.Model)
+                        .Label(l => l.Text("Model:"));
+                    i.Add()
+                        .Field(f => f.Class)
+                        .Label(l => l.Text("Class:"));
+                });
+
+            items.AddGroup()
+                .Label("Insurance Details")
+                .Layout("grid")
+                .Grid(g => g.Cols(2).Gutter(10))
+                .Items(i =>
+                {
+                    i.Add()
+                        .Field(f => f.InsurancePolicyId)
+                        .Label(l => l.Text("Policy ID:"))
+                        .ColSpan(2);
+                    i.Add()
+                        .Field(f => f.InsuranceStartAt)
+                        .Label(l => l.Text("Issued Date:"))
+                        .Editor(x => {
+                                         x.DatePicker().Format("dd-MM-yyyy"); 
+                        })
+                        .ColSpan(1);
+                    
+                    i.Add()
+                        .Field(f => f.InsuranceExpiryAt)
+                        .Label(l => l.Text("Expiry Date:"))
+                        .Editor(x => {
+                                         x.DatePicker().Format("dd-MM-yyyy"); 
+                        })
+                        .ColSpan(1);
+                });
+        }))

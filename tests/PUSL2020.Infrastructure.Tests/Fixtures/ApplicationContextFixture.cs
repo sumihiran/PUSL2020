@@ -15,7 +15,7 @@ using Xunit;
 
 namespace PUSL2020.Infrastructure.Tests.Fixtures;
 
-public class InMemoryApplicationDbContextFixture : ICollectionFixture<MinIoFixture>, IAsyncLifetime, IDisposable
+public class ApplicationContextFixture : ICollectionFixture<MinIoFixture>, IAsyncLifetime, IDisposable
 {
     public readonly IHost Host = Microsoft.Extensions.Hosting.Host
         .CreateDefaultBuilder()

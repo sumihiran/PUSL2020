@@ -1,6 +1,6 @@
 using Microsoft.Extensions.Logging;
 
-namespace PUSL2020.Application.Services;
+namespace PUSL2020.Application.Services.Impl;
 
 public class LoggingEmailSender : IEmailSender
 {
