@@ -1,7 +1,6 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
+using PUSL2020.Application;
 using PUSL2020.Application.Data;
 using PUSL2020.Application.Identity.Models;
 using PUSL2020.Domain.Entities;
@@ -9,51 +8,29 @@ using PUSL2020.Domain.Entities.Vehicles;
 using PUSL2020.Domain.Enums;
 using PUSL2020.Domain.ValueObjects;
 
-namespace PUSL2020.Infrastructure.Data;
+namespace PUSL2020.Web.Data;
 
-public class ApplicationDbContextInitializer
+[Order(100)]
+public class DemoDataSeeder : IApplicationInitializer
 {
     private readonly IServiceProvider _serviceProvider;
-    private readonly ILogger<ApplicationDbContextInitializer> _logger;
-    private readonly ApplicationDbContext _context;
+    private readonly IApplicationDbContext _dbContext;
+    private readonly ILogger<DemoDataSeeder> _logger;
+
+    public DemoDataSeeder(IServiceProvider serviceProvider, IApplicationDbContext dbContext,
+         ILogger<DemoDataSeeder> logger)
+    {
+        _serviceProvider = serviceProvider;
+        _dbContext = dbContext;
+        _logger = logger;
+    }
 
     private const string WebMasterUsername = "admin";
 
-    public ApplicationDbContextInitializer(
-        ILogger<ApplicationDbContextInitializer> logger,
-        ApplicationDbContext context,
-        IServiceProvider serviceProvider)
+    public Task InitialiseAsync() => SeedAsync();
+
+    private async Task SeedAsync()
     {
-        _logger = logger;
-        _context = context;
-        _serviceProvider = serviceProvider;
-    }
-
-    public async Task InitialiseAsync()
-    {
-        try
-        {
-            if (_context.Database.IsSqlServer())
-            {
-                await _context.Database.MigrateAsync();
-            }
-        }
-        catch (Exception ex)
-        {
-            _logger.LogError(ex, "An error occurred while initialising the database.");
-            throw;
-        }
-    }
-
-    public async Task SeedAsync()
-    {
-        var seeder = ActivatorUtilities.CreateInstance<MasterDataSeeder>(_serviceProvider);
-
-        await seeder.SeedRdaOffices();
-        await seeder.SeedInsurances();
-        await seeder.SeedPoliceStations();
-
-
         await SeedWebMasterAsync();
         await SeedReporterWithVehicleAsync();
     }
@@ -106,7 +83,7 @@ public class ApplicationDbContextInitializer
         _logger.LogInformation("Password: {Password}", password);
         _logger.LogInformation("=======================================");
 
-        var insurances = await _context.Insurances.ToListAsync();
+        var insurances = await _dbContext.Insurances.ToListAsync();
 
         var vehicle = new Vehicle
         {
@@ -135,6 +112,7 @@ public class ApplicationDbContextInitializer
 
         var vehicleRepository = _serviceProvider.GetRequiredService<IVehicleRepository>();
         await vehicleRepository.AddAsync(vehicle);
-        await _context.SaveChangesAsync();
     }
+
+    
 }

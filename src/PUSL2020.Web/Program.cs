@@ -8,6 +8,7 @@ using PUSL2020.Application.Services;
 using PUSL2020.Application.Services.Impl;
 using PUSL2020.Infrastructure;
 using PUSL2020.Infrastructure.Data;
+using PUSL2020.Web.Data;
 using PUSL2020.Web.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -81,17 +82,18 @@ if (!builder.Environment.IsProduction())
 }
 
 
+builder.Services.AddTransient<IApplicationInitializer, DemoDataSeeder>();
+builder.Services.AddTransient<IApplicationInitializer, MasterDataSeeder>();
+
 var app = builder.Build();
 
-if (!app.Environment.IsProduction())
+using (var scope = app.Services.CreateScope())
 {
-    using (var scope = app.Services.CreateScope())
-    {
-        var initializer = ActivatorUtilities.CreateInstance<ApplicationDbContextInitializer>(scope.ServiceProvider);
-        await initializer.InitialiseAsync();
-        await initializer.SeedAsync();
-    }
-    
+    await scope.ServiceProvider.InitialiseAsync();
+}
+
+if (app.Environment.IsProduction())
+{
     app.UseDeveloperExceptionPage();
 }
 else

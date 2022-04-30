@@ -4,6 +4,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Minio.AspNetCore;
+using PUSL2020.Application;
 using PUSL2020.Application.Data;
 using PUSL2020.Application.Data.Impl;
 using PUSL2020.Application.Identity.Models;
@@ -21,11 +22,31 @@ public static class ServiceCollectionExtensions
     public static void RegisterInfrastructureServices(this IServiceCollection services,
         IConfiguration configuration, IHostEnvironment environment)
     {
+
+        AddDbContextServices(services, configuration);
+        AddIdentityStores(services);
         
-        // Database
+        services.AddTransient<IReporterRepository, ReporterRepository>();
+        services.AddTransient<IVehicleRepository, VehicleRepository>();
+        services.AddTransient<IVehicleService, VehicleService>();
+        
+        // Object Storage
+        var minioOptions = new MinioOptions();
+        configuration.GetRequiredSection("Minio").Bind(minioOptions);
+        services.AddMinio(opt =>
+        {
+            opt.Endpoint = minioOptions.Endpoint;
+            opt.AccessKey = minioOptions.AccessKey;
+            opt.SecretKey = minioOptions.SecretKey;
+            opt.Region = minioOptions.Region;
+        });
+    }
+
+    private static void AddDbContextServices(IServiceCollection services,  IConfiguration configuration)
+    {
         services.AddDbContext<ApplicationDbContext>(o =>
         {
-            if (environment.IsDevelopment())
+            if (configuration.UseInMemory())
             {
                 o.UseInMemoryDatabase("PUSL2020");
             }
@@ -43,30 +64,14 @@ public static class ServiceCollectionExtensions
             }
         });
         services.AddScoped<IApplicationDbContext>(sp => sp.GetRequiredService<ApplicationDbContext>());
-        services.AddTransient<IReporterRepository, ReporterRepository>();
-        services.AddTransient<IVehicleRepository, VehicleRepository>();
-        services.AddTransient<IVehicleService, VehicleService>();
+        services.AddScoped<IApplicationInitializer, ApplicationDbInitializer>();
         services.AddScoped<IUnitOfWork, UnitOfWork>();
-        
-        // Identity
-        services
-            .AddScoped<IUserStore<ReporterUser>, ReporterUserOnlyStore<ApplicationDbContext>>();
-        
-        services
-            .AddScoped<IUserStore<EmployeeUser>, UserOnlyStore<EmployeeUser, ApplicationDbContext, EmployeeId>>();
-        
-        services
-            .AddScoped<IUserStore<WebMaster>, GenericUserStore<WebMaster, ApplicationDbContext, int>>();
-        
-        // Object Storage
-        var minioOptions = new MinioOptions();
-        configuration.GetRequiredSection("Minio").Bind(minioOptions);
-        services.AddMinio(opt =>
-        {
-            opt.Endpoint = minioOptions.Endpoint;
-            opt.AccessKey = minioOptions.AccessKey;
-            opt.SecretKey = minioOptions.SecretKey;
-            opt.Region = minioOptions.Region;
-        });
+    }
+
+    private static void AddIdentityStores(IServiceCollection services)
+    {
+        services.AddScoped<IUserStore<ReporterUser>, ReporterUserOnlyStore<ApplicationDbContext>>();
+        services.AddScoped<IUserStore<EmployeeUser>, UserOnlyStore<EmployeeUser, ApplicationDbContext, EmployeeId>>();
+        services.AddScoped<IUserStore<WebMaster>, GenericUserStore<WebMaster, ApplicationDbContext, int>>();
     }
 }

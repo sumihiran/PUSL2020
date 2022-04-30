@@ -26,13 +26,13 @@
     </ItemGroup>
 
     <ItemGroup>
-        <Content Include="..\Assets\**" LinkBase="Assets">
+        <EmbeddedResource Include="..\Assets\**" LinkBase="Assets">
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-        </Content>
+        </EmbeddedResource>
     </ItemGroup>
 
     <ItemGroup>
-      <Content Include="appsettings.json">
+      <Content Include="appsettings.Test.json">
         <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>

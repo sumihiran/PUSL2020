@@ -1,7 +1,7 @@
 ﻿Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{ffd4a1cc-2914-433c-b1e3-10d7795b61fc}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{FFD4A1CC-2914-433C-B1E3-10D7795B61FC}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{8741bc32-f75d-425c-853d-39f8d1b8aa60}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{8741BC32-F75D-425C-853D-39F8D1B8AA60}"
 EndProject
 
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PUSL2020.Web", "src\PUSL2020.Web\PUSL2020.Web.csproj", "{4EF03E64-E19A-483A-9233-8F221FEAF502}"
@@ -14,11 +14,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PUSL2020.Domain", "src\PUSL
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PUSL2020.Web.UI.Tests", "tests\PUSL2020.Web.UI.Tests\PUSL2020.Web.UI.Tests.csproj", "{3A1027CF-3968-4DFC-8746-256D59B31145}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docker", "Docker", "{9E982AA6-2E24-40A4-B641-DE4DCC711F13}"
-				ProjectSection(SolutionItems) = preProject
-								docker-compose.yml = ./deploy/docker-compose.yml
-								.dockerignore = .dockerignore
-				EndProjectSection
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "docker-compose", "deploy\docker-compose.dcproj", "{09546FA7-295C-41BF-B7A3-80B9C74EBDB1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PUSL2020.Infrastructure.Tests", "tests\PUSL2020.Infrastructure.Tests\PUSL2020.Infrastructure.Tests.csproj", "{9AE46A31-EC05-43F5-A619-5B241C076562}"
 EndProject
@@ -27,6 +23,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PUSL2020.Application.Tests", "tests\PUSL2020.Application.Tests\PUSL2020.Application.Tests.csproj", "{47B9C46A-F983-468E-9FD1-E3E29B1B3710}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PUSL2020.Tests.Shared", "tests\PUSL2020.Tests.Shared\PUSL2020.Tests.Shared.csproj", "{63C3CE17-5BE6-442D-87A0-EF8745479B4B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PUSL2020.MasterData", "src\PUSL2020.MasterData\PUSL2020.MasterData.csproj", "{24F7A8C1-8DEB-441D-BC10-224BE77BAE6B}"
 EndProject
 
 Global
@@ -75,6 +73,10 @@ Global
 		{63C3CE17-5BE6-442D-87A0-EF8745479B4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{63C3CE17-5BE6-442D-87A0-EF8745479B4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{63C3CE17-5BE6-442D-87A0-EF8745479B4B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{24F7A8C1-8DEB-441D-BC10-224BE77BAE6B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{24F7A8C1-8DEB-441D-BC10-224BE77BAE6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{24F7A8C1-8DEB-441D-BC10-224BE77BAE6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{24F7A8C1-8DEB-441D-BC10-224BE77BAE6B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{47B9C46A-F983-468E-9FD1-E3E29B1B3710} = {8741bc32-f75d-425c-853d-39f8d1b8aa60}
@@ -86,5 +88,6 @@ Global
 		{4EF03E64-E19A-483A-9233-8F221FEAF502} = {ffd4a1cc-2914-433c-b1e3-10d7795b61fc}
 		{514A0879-35D0-46D4-9C19-F20982546C79} = {ffd4a1cc-2914-433c-b1e3-10d7795b61fc}
 		{63C3CE17-5BE6-442D-87A0-EF8745479B4B} = {8741bc32-f75d-425c-853d-39f8d1b8aa60}
+		{24F7A8C1-8DEB-441D-BC10-224BE77BAE6B} = {FFD4A1CC-2914-433C-B1E3-10D7795B61FC}
 	EndGlobalSection
 EndGlobal

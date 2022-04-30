@@ -9,17 +9,6 @@ namespace PUSL2020.Application;
 
 public static class ServiceCollectionExtensions
 {
-    public static void RegisterApplicationServices(this IServiceCollection services,
-        IConfiguration configuration)
-    {
-        if (services == null)
-        {
-            throw new ArgumentNullException(nameof(services));
-        }
-
-        throw new NotImplementedException();
-    }
-    
     public static AuthenticationBuilder AddAuthenticationDefaults(this IServiceCollection services)
     {
         return services.AddAuthentication(o =>

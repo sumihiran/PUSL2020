@@ -1,6 +1,22 @@
 version: '3.3'
 
 services:
+  web:
+    image: pusl2020-web
+    build:
+      context: ../
+      args:
+        TELERIK_USERNAME: ${TELERIK_USERNAME:-}
+        TELERIK_PASSWORD: ${TELERIK_PASSWORD:-}
+    ports:
+      - 5000:80 
+    depends_on:
+      - mssql
+      - minio
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:80
+  
   mssql:
     container_name: sql-server
     image: mcr.microsoft.com/mssql/server:2019-latest
@@ -10,8 +26,8 @@ services:
       SA_PASSWORD: ${MSSQL_PASSWORD:-yourStrong(!)Password}
     ports:
       - "1433:1433"
-  #    volumes:
-  #      - mssql_data:/var/opt/mssql
+    volumes:
+        - mssql_data:/var/opt/mssql
 
   minio:
     container_name: minio
@@ -20,15 +36,9 @@ services:
     expose:
       - "9000"
       - "9001"
-    ports:
-      - "9000:9000"
-      - "9001:9001"
-    environment:
-      MINIO_CONSOLE_ADDRESS: ":9001"
-      MINIO_ROOT_USER: minioadmin
-      MINIO_ROOT_PASSWORD: minioadmin
-    command: server --console-address ":9001" /data
-
+    command: server /data
+    volumes:
+      - minio_data:/data
 
 volumes:
   mssql_data:

@@ -1,20 +1,23 @@
 using System.IO;
+using System.Reflection;
 using System.Threading.Tasks;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.FileProviders;
 using Minio;
+using PUSL2020.Infrastructure.Data;
 using PUSL2020.Web.UI.Tests.Fixtures;
 using Xunit;
 
 namespace PUSL2020.Web.UI.Tests;
 
-public class ImageProxyControllerTests : IClassFixture<InMemoryWebApplicationFactory>
+public class ImageProxyControllerTests : IClassFixture<WebApplicationFactory>
 {
-    private readonly InMemoryWebApplicationFactory _factory;
+    private readonly WebApplicationFactory _factory;
     private readonly MinioClient _minioClient;
     
     private const string Filename = "alex-padurariu-unsplash.jpg";
 
-    public ImageProxyControllerTests(InMemoryWebApplicationFactory factory)
+    public ImageProxyControllerTests(WebApplicationFactory factory)
     {
         _factory = factory;
         _minioClient = factory.Services.GetRequiredService<MinioClient>();
@@ -23,7 +26,7 @@ public class ImageProxyControllerTests : IClassFixture<InMemoryWebApplicationFac
     [Fact]
     public async Task Proxy_WhenCalled_ReturnsResponseOk()
     {
-        await EnsureImageIsPresent();
+        await EnsureImageIsUploaded_IsPresent();
         
         var client = _factory.CreateClient();
         
@@ -31,20 +34,26 @@ public class ImageProxyControllerTests : IClassFixture<InMemoryWebApplicationFac
         response.EnsureSuccessStatusCode();
     }
 
-    private async Task EnsureImageIsPresent()
+    private async Task EnsureImageIsUploaded_IsPresent()
     {
-        var filePath = Path.Combine(Directory.GetCurrentDirectory(), "Assets",Filename);
-        await using var sourceStream = new FileStream(filePath, FileMode.Open, FileAccess.Read, FileShare.None,
-            bufferSize: 4096, useAsync: true);
+        var embedded = new EmbeddedFileProvider(Assembly.GetExecutingAssembly());
+        var imageFile = embedded.GetFileInfo("Assets/" + Filename);
 
-        var size = sourceStream.Length;
+        if (!imageFile.Exists)
+        {
+            throw new FileNotFoundException($"Location: {imageFile}");
+        }
+
+        var stream = imageFile.CreateReadStream();
+        
+        var size = stream.Length;
         
         var putObjectArgs = new PutObjectArgs()
             .WithBucket("pusl")
             .WithObject(Filename)
             .WithContentType("image/jpeg")
             .WithObjectSize(size)
-            .WithStreamData(sourceStream);
+            .WithStreamData(stream);
 
         await _minioClient.PutObjectAsync(putObjectArgs);
 

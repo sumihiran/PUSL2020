@@ -3,7 +3,7 @@ using PUSL2020.Infrastructure.Data;
 
 namespace PUSL2020.Infrastructure.Services;
 
-public class UnitOfWork : IUnitOfWork, IAsyncDisposable 
+public class UnitOfWork : IUnitOfWork, IDisposable 
 {
     private readonly ApplicationDbContext _context;
 
@@ -15,9 +15,9 @@ public class UnitOfWork : IUnitOfWork, IAsyncDisposable
     {
         await _context.SaveChangesAsync();
     }
-
-    public ValueTask DisposeAsync()
+    
+    public void Dispose()
     {
-        return _context.DisposeAsync();
+        // _context.Dispose();
     }
 }

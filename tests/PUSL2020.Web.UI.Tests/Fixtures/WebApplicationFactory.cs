@@ -5,14 +5,14 @@ using Minio.AspNetCore;
 
 namespace PUSL2020.Web.UI.Tests.Fixtures;
 
-public class InMemoryWebApplicationFactory : WebApplicationFactory<Program>
+public class WebApplicationFactory : WebApplicationFactory<Program>
 {
     protected override void ConfigureWebHost(IWebHostBuilder builder)
     {
         builder.ConfigureAppConfiguration(configurationBuilder =>
         {
             var integrationConfig = new ConfigurationBuilder()
-                .AddJsonFile("appsettings.json")
+                .AddJsonFile("appsettings.Test.json")
                 .AddEnvironmentVariables()
                 .Build();
 

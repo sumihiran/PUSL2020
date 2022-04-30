@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" Sdk="Microsoft.Docker.Sdk">
+    <PropertyGroup Label="Globals">
+        <ProjectVersion>6.0</ProjectVersion>
+        <DockerTargetOS>Linux</DockerTargetOS>
+        <ProjectGuid>09546fa7-295c-41bf-b7a3-80b9c74ebdb1</ProjectGuid>
+        <DockerServiceName>pusl2020</DockerServiceName>
+    </PropertyGroup>
+    <ItemGroup>
+        <None Include="docker-compose.override.yml">
+            <DependentUpon>docker-compose.yml</DependentUpon>
+        </None>
+        <None Include="docker-compose.dev.yml">
+            <DependentUpon>docker-compose.yml</DependentUpon>
+        </None>
+        <None Include="docker-compose.yml" />
+        <None Include="../.dockerignore" Link=".dockerignore" />
+    </ItemGroup>
+    <ItemGroup>
+      <Content Include="..\Dockerfile">
+        <Link>Dockerfile</Link>
+      </Content>
+    </ItemGroup>
+</Project>
