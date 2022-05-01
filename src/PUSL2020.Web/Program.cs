@@ -48,9 +48,7 @@ builder.Services.AddAuthenticationDefaults()
     })
     .AddIdentityCookies();
 
-builder.Services.AddApplicationServices()
-    .AddRepositories()
-    .AddServices();
+builder.Services.AddApplicationServices();
 
 builder.Services.AddReporterIdentity()
     .AddSignInManager<Microsoft.AspNetCore.Identity.SignInManager<ReporterUser>>();

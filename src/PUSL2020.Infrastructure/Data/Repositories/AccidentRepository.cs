@@ -1,11 +1,12 @@
 using System.Linq.Expressions;
 using Microsoft.EntityFrameworkCore;
+using PUSL2020.Application.Data;
 using PUSL2020.Application.Dtos;
 using PUSL2020.Domain.Entities;
 using PUSL2020.Domain.Enums;
 using PUSL2020.Domain.ValueObjects;
 
-namespace PUSL2020.Application.Data.Impl;
+namespace PUSL2020.Infrastructure.Data.Repositories;
 
 public class AccidentRepository : BaseRepository<Accident, RefId>, IAccidentRepository
 {

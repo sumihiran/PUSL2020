@@ -1,8 +1,10 @@
+using Microsoft.EntityFrameworkCore;
 using PUSL2020.Application.Data;
+using PUSL2020.Application.Services;
 using PUSL2020.Domain.Entities.Vehicles;
 using PUSL2020.Domain.ValueObjects;
 
-namespace PUSL2020.Application.Services.Impl;
+namespace PUSL2020.Infrastructure.Services;
 
 public class VehicleService : IVehicleService
 {
@@ -25,13 +27,14 @@ public class VehicleService : IVehicleService
 
     public async Task<Vehicle?> GetVehicleByReporterIdAndVrnAsync(ReporterId reporterId, string vrn)
     {
-        var vehicles = await _vehicleRepository.FindAsync(v => v.Reporter.Id == reporterId && v.Vrn == vrn);
+        var vehicles = await _vehicleRepository.FindByCondition(v => v.Reporter.Id == reporterId && v.Vrn == vrn)
+            .ToListAsync();
         return vehicles.FirstOrDefault();
     }
 
     public async Task<IEnumerable<Vehicle>> GetVehiclesByReporterIdAsync(ReporterId reporterId)
     {
-        return await _vehicleRepository.FindAsync(v => v.Reporter.Id == reporterId);
+        return await _vehicleRepository.FindByCondition(v => v.Reporter.Id == reporterId).ToListAsync();
     }
 
     public async Task<bool> AddVehicleByReporterIdAsync(ReporterId reporterId, Vehicle vehicle)
@@ -44,7 +47,7 @@ public class VehicleService : IVehicleService
 
         vehicle.Reporter = reporter;
         await _vehicleRepository.AddAsync(vehicle);
-        
+
         await _unitOfWork.CompleteAsync();
         return true;
     }

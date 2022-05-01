@@ -6,12 +6,11 @@ using Microsoft.Extensions.Hosting;
 using Minio.AspNetCore;
 using PUSL2020.Application;
 using PUSL2020.Application.Data;
-using PUSL2020.Application.Data.Impl;
 using PUSL2020.Application.Identity.Models;
 using PUSL2020.Application.Services;
-using PUSL2020.Application.Services.Impl;
 using PUSL2020.Domain.ValueObjects;
 using PUSL2020.Infrastructure.Data;
+using PUSL2020.Infrastructure.Data.Repositories;
 using PUSL2020.Infrastructure.Identity;
 using PUSL2020.Infrastructure.Services;
 
@@ -25,6 +24,15 @@ public static class ServiceCollectionExtensions
 
         AddDbContextServices(services, configuration);
         AddIdentityStores(services);
+        
+        services.AddTransient<IReporterRepository, ReporterRepository>();
+        services.AddTransient<IVehicleRepository, VehicleRepository>();
+        services.AddTransient<IAccidentRepository, AccidentRepository>();
+        services.AddTransient<IEmployeeRepository, EmployeeRepository>();
+        
+        services.AddTransient<IVehicleService, VehicleService>();
+        services.AddTransient<IAccidentService, AccidentService>();
+        
         
         // Object Storage
         var minioOptions = new MinioOptions();

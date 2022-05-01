@@ -1,6 +1,5 @@
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.Extensions.DependencyInjection;
-using PUSL2020.Application.Data;
-using PUSL2020.Application.Data.Impl;
 using PUSL2020.Application.Services;
 using PUSL2020.Application.Services.Impl;
 
@@ -12,22 +11,10 @@ public class ApplicationServiceBuilder
 
     public ApplicationServiceBuilder(IServiceCollection services)
     {
+        services.AddSingleton<IClock, ApplicationClock>();
+        services.AddSingleton<ISystemClock>(sp => (sp.GetService<IClock>() as ApplicationClock)!);
+        
         _services = services;
-    }
-    
-    public ApplicationServiceBuilder AddRepositories()
-    {
-        _services.AddTransient<IReporterRepository, ReporterRepository>();
-        _services.AddTransient<IVehicleRepository, VehicleRepository>();
-        _services.AddTransient<IAccidentRepository, AccidentRepository>();
-        return this;
-    }
-    
-    public  ApplicationServiceBuilder AddServices()
-    {
-        _services.AddTransient<IVehicleService, VehicleService>();
-        _services.AddTransient<IAccidentService, AccidentService>();
-        return this;
     }
 
 }
