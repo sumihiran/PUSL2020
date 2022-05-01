@@ -1,6 +1,6 @@
 ﻿{
   "profiles": {
-    "PUSL2020.Web.Development": {
+    "PUSL2020.Web": {
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": false,
