@@ -88,7 +88,7 @@ public class DemoDataSeeder : IApplicationInitializer
         var vehicle = new Vehicle
         {
             EngineNo = "1234",
-            Class = "Car",
+            Class = VehicleClass.B,
             FuelType = FuelType.Petrol,
             Model = "Audi A4",
             RegisteredAt = DateOnly.FromDateTime(DateTime.Now),

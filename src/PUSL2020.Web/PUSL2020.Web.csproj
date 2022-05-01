@@ -17,6 +17,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\..\tests\PUSL2020.Tests.Shared\PUSL2020.Tests.Shared.csproj" />
       <ProjectReference Include="..\PUSL2020.Application\PUSL2020.Application.csproj" />
       <ProjectReference Include="..\PUSL2020.Domain\PUSL2020.Domain.csproj" />
       <ProjectReference Include="..\PUSL2020.Infrastructure\PUSL2020.Infrastructure.csproj" />

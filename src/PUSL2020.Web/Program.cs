@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Identity;
 using PUSL2020.Application;
 using PUSL2020.Application.Identity;
 using PUSL2020.Application.Identity.Models;
+using PUSL2020.Application.Mappers;
 using PUSL2020.Application.Services;
 using PUSL2020.Application.Services.Impl;
 using PUSL2020.Infrastructure;
@@ -13,7 +14,7 @@ using PUSL2020.Web.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddAutoMapper(typeof(Program));
+builder.Services.AddAutoMapper(typeof(Program), typeof(EntityProfile));
 
 builder.Services.AddProxies();
 builder.Services.AddKendo();
@@ -84,6 +85,7 @@ if (!builder.Environment.IsProduction())
 
 builder.Services.AddTransient<IApplicationInitializer, DemoDataSeeder>();
 builder.Services.AddTransient<IApplicationInitializer, MasterDataSeeder>();
+builder.Services.AddTransient<IApplicationInitializer, DemoAccidentsSeeder>();
 
 var app = builder.Build();
 

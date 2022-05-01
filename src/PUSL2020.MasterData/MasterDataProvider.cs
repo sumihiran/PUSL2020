@@ -19,40 +19,45 @@ public static class MasterDataProvider
         Delimiter = ","
     };
 
-    public static IEnumerable<PoliceStation> GetPoliceStations()
+    public static async Task<IEnumerable<PoliceStation>> GetPoliceStationsAsync()
     {
         var csvFile = FileProvider.GetFileInfo("Csv/police_stations.csv");
         using var reader = new StreamReader(csvFile.CreateReadStream());
         using var csv = new CsvReader(reader, CsvConfiguration);
 
-
-        return csv
-            .GetRecords<PoliceStationRecord>()
-            .Select(record => new PoliceStation()
+        var stations = new List<PoliceStation>();
+        await foreach (var record in csv.GetRecordsAsync<PoliceStationRecord>())
+        {
+            stations.Add(new PoliceStation()
             {
                 Area = record.Station,
                 Division = record.Division,
                 Province = record.Province,
                 PhoneNumber = record.Phone
-            })
-            .ToList();
+            });
+        }
+
+        return stations;
     }
 
-    public static IEnumerable<Insurance> GetInsurances()
+    public static async Task<IEnumerable<Insurance>> GetInsurancesAsync()
     {
         var csvFile = FileProvider.GetFileInfo("Csv/insurances.csv");
         using var reader = new StreamReader(csvFile.CreateReadStream());
         using var csv = new CsvReader(reader, CsvConfiguration);
-
-        return csv
-            .GetRecords<InsuranceRecord>()
-            .Select(record => new Insurance()
+        
+        var insurances = new List<Insurance>();
+        await foreach (var record in csv.GetRecordsAsync<InsuranceRecord>())
+        {
+            insurances.Add(new Insurance()
             {
                 Name = record.Name,
                 Address = record.Address,
                 PhoneNumber = record.Phone
-            })
-            .ToList();
+            });
+        }
+
+        return insurances;
     }
 
     public static IEnumerable<RdaOffice> GetRdaOffices()

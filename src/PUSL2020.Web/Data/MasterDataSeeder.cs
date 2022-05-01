@@ -40,7 +40,7 @@ public class MasterDataSeeder : IApplicationInitializer
     {
         if (await IsDataSetEmpty<PoliceStation>())
         {
-            await _dbContext.PoliceStations.AddRangeAsync(MasterDataProvider.GetPoliceStations());
+            await _dbContext.PoliceStations.AddRangeAsync(await MasterDataProvider.GetPoliceStationsAsync());
         }
     }
 
@@ -48,7 +48,7 @@ public class MasterDataSeeder : IApplicationInitializer
     {
         if (await IsDataSetEmpty<Insurance>())
         {
-            await _dbContext.Insurances.AddRangeAsync(MasterDataProvider.GetInsurances());
+            await _dbContext.Insurances.AddRangeAsync(await MasterDataProvider.GetInsurancesAsync());
         }
     }
 
