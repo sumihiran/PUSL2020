@@ -15,6 +15,7 @@ COPY ["src/PUSL2020.Domain/PUSL2020.Domain.csproj", "PUSL2020.Domain/"]
 COPY ["src/PUSL2020.Application/PUSL2020.Application.csproj", "PUSL2020.Application/"]
 COPY ["src/PUSL2020.Infrastructure/PUSL2020.Infrastructure.csproj", "PUSL2020.Infrastructure/"]
 COPY ["src/PUSL2020.Web/PUSL2020.Web.csproj", "PUSL2020.Web/"]
+COPY ["src/PUSL2020.MasterData/PUSL2020.MasterData.csproj", "PUSL2020.MasterData/"]
 
 RUN dotnet restore "PUSL2020.Web/PUSL2020.Web.csproj"
 COPY src .
