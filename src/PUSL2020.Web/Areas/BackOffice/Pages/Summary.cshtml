@@ -1,0 +1,75 @@
+@page
+@model PUSL2020.Web.Areas.BackOffice.Pages.SummaryModel
+@{
+    ViewData["Title"] = "Accidents Summary";
+}
+
+<h1>@ViewData["Title"]</h1>
+<div class="row">
+    <div class="col-md-4">
+        @(Html.Kendo().Chart()
+                .Name("chart-bar")
+                .Title(title => 
+                    title.Text("Annual % accidents by vehicle class")
+                        .Position(ChartTitlePosition.Bottom))
+                .Legend(legend => legend
+                    .Position(ChartLegendPosition.Top)
+                )
+                .ChartArea(chartArea => chartArea
+                    .Background("transparent")
+                )
+                .Series(series =>
+                {
+                    foreach (var model in Model.Series)
+                    {
+                        series.Column(model.Values).Name(model.Name);
+                    }
+                })
+                .CategoryAxis(axis => axis
+                    .Name("series-axis")
+                    .Line(line => line.Visible(false))
+                )
+                .CategoryAxis(axis => axis
+                    .Name("label-axis")
+                    .Categories(Model.Years)
+                )
+                .ValueAxis(axis => axis
+                    .Numeric()
+                        .Labels(labels => labels.Format("{0}%"))
+        
+                        // Move the label-axis all the way down the value axis
+                        .AxisCrossingValue(0, int.MinValue)
+                )
+                .Tooltip(tooltip => tooltip
+                    .Visible(true)
+                    .Format("{0}%")
+                    .Template("#= series.name #: #= value #")
+                )
+            )
+    </div>
+    <div class="col-md-5 offset-md-1">
+        @(Html.Kendo().Chart()
+            .Name("chart")
+            .Title(title => title
+                .Text("Causes of Car Accidents")
+                .Position(ChartTitlePosition.Bottom))
+            .Legend(legend => legend
+                .Visible(false)
+            )
+            .Series(series =>
+            {
+                series.Pie(Model.CarAccidents)
+                    .Labels(labels => labels
+                        .Template("#= category #: \n #= value#%")
+                        .Background("transparent")
+                        .Visible(true)
+                    )
+                    .StartAngle(150);
+            })
+            .Tooltip(tooltip => tooltip
+                .Visible(true)
+                .Format("{0}%")
+            )
+            )
+    </div>
+</div>

@@ -26,10 +26,6 @@ public static class ServiceCollectionExtensions
         AddDbContextServices(services, configuration);
         AddIdentityStores(services);
         
-        services.AddTransient<IReporterRepository, ReporterRepository>();
-        services.AddTransient<IVehicleRepository, VehicleRepository>();
-        services.AddTransient<IVehicleService, VehicleService>();
-        
         // Object Storage
         var minioOptions = new MinioOptions();
         configuration.GetRequiredSection("Minio").Bind(minioOptions);

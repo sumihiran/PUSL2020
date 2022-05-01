@@ -10,4 +10,5 @@ public interface IGenericRepository<TEntity, in TKey> where TEntity : class wher
     Task DeleteAsync(TEntity entity);
     Task UpdateAsync(TEntity entity);
     Task<IEnumerable<TEntity>> FindAsync(Expression<Func<TEntity, bool>> predicate);
+    Task<long> CountAsync(Expression<Func<TEntity, bool>> predicate);
 }

@@ -46,4 +46,9 @@ public abstract class BaseRepository<TEntity, TKey> : IGenericRepository<TEntity
         var results = await _dbSet.Where(predicate).ToListAsync();
         return results;
     }
+    
+    public Task<long> CountAsync(Expression<Func<TEntity, bool>> predicate)
+    {
+        return _dbSet.Where(predicate).LongCountAsync();
+    }
 }

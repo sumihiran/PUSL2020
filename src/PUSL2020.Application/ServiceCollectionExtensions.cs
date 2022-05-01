@@ -1,6 +1,5 @@
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using PUSL2020.Application.Identity;
 using PUSL2020.Application.Identity.Models;
@@ -9,6 +8,12 @@ namespace PUSL2020.Application;
 
 public static class ServiceCollectionExtensions
 {
+    public static ApplicationServiceBuilder AddApplicationServices(this IServiceCollection services)
+    {
+        return new ApplicationServiceBuilder(services);
+    }
+
+    
     public static AuthenticationBuilder AddAuthenticationDefaults(this IServiceCollection services)
     {
         return services.AddAuthentication(o =>
@@ -17,7 +22,7 @@ public static class ServiceCollectionExtensions
             o.DefaultSignInScheme = IdentityConstants.ExternalScheme;
         });
     }
-
+    
     public static IdentityBuilder AddReporterIdentity(this IServiceCollection services)
     {
         return services.AddIdentityCore<ReporterUser>()
