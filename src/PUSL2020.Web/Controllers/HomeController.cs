@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
+using PUSL2020.Infrastructure.Data;
 using PUSL2020.Web.Models;
 
 namespace PUSL2020.Web.Controllers;
@@ -7,10 +8,12 @@ namespace PUSL2020.Web.Controllers;
 public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
+    private readonly ApplicationDbContext _dbContext;
 
-    public HomeController(ILogger<HomeController> logger)
+    public HomeController(ILogger<HomeController> logger, ApplicationDbContext dbContext)
     {
         _logger = logger;
+        _dbContext = dbContext;
     }
 
     [Route("/")]
